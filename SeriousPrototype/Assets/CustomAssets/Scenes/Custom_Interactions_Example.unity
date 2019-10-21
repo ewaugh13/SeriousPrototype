@@ -9284,6 +9284,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ThrowableCube
       objectReference: {fileID: 0}
+    - target: {fileID: 1000010777624494, guid: fb710a001890d9a44bb74a8ce4f20cc0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4000011633437892, guid: fb710a001890d9a44bb74a8ce4f20cc0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.064469
@@ -13319,7 +13323,7 @@ PrefabInstance:
     - target: {fileID: 6600233107022722447, guid: d48e3524135c7534aac5337bc1923010,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.071
+      value: 1.1429
       objectReference: {fileID: 0}
     - target: {fileID: 6600233107022722447, guid: d48e3524135c7534aac5337bc1923010,
         type: 3}
@@ -13373,14 +13377,23 @@ PrefabInstance:
       objectReference: {fileID: 1271963283}
     - target: {fileID: 6486180239456443563, guid: d48e3524135c7534aac5337bc1923010,
         type: 3}
-      propertyPath: skeletonMainPose
+      propertyPath: previewLeftInstance
       value: 
-      objectReference: {fileID: 11400000, guid: fa949aa4be1efcb4bb26c7d793c051c9,
-        type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 6486180239456443563, guid: d48e3524135c7534aac5337bc1923010,
         type: 3}
-      propertyPath: poseNames.Array.data[0]
-      value: TipPose (MAIN)
+      propertyPath: previewRightInstance
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6486180239456443563, guid: d48e3524135c7534aac5337bc1923010,
+        type: 3}
+      propertyPath: showLeftPreview
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6486180239456443563, guid: d48e3524135c7534aac5337bc1923010,
+        type: 3}
+      propertyPath: showRightPreview
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d48e3524135c7534aac5337bc1923010, type: 3}
