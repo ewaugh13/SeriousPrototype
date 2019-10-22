@@ -12,32 +12,34 @@ public class SnapObjexctToTree : MonoBehaviour
     #endregion
 
 
+    private void OnTriggerEnter(Collider other)
+    {
+        
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         HasCoral = false;
-        local_x = this.gameObject.GetComponent<Transform>().localPosition.x;
-        local_y = this.gameObject.GetComponent<Transform>().localPosition.y;
-        local_z = this.gameObject.GetComponent<Transform>().localPosition.z;
+
+        local_x = this.transform.localPosition.x;
+        local_y = this.transform.localPosition.y;
+        local_z = this.transform.localPosition.z;
+        //CapsuleCollider[] components = gameObject.GetComponents<CapsuleCollider>();
+        //components[0].enabled
+        //foreach (Component component in components)
+        //{
+        //    var type = component.GetType();
+        //    Debug.Log(type);
+        //    if (type.ToString() == "UnityEngine.CapsuleCollider")
+        //    {
+
+        //    }
+
+        //}
+
+
     }
-    
-    // Runs whenever a collision is detected in the node's capsule triger
-    private void OnTriggerEnter(Collider other)
-    {
-        // ONLY EXECTUE IF THE NODE HAS NO CORAL
-        if (HasCoral == false)
-        {
-            // CHECK IF THE COLLISION IS WITH A CORAL
-
-            // CHECK IF THE CORAL IS RELEASED FROM THE PLAYER'S HAND
-
-            // SNAP THE CORAL TO THE CAPSULE
-            other.transform.position = transform.position;
-
-            HasCoral = true;
-        }
-    }
-
 
     // Update is called once per frame
     void Update()
