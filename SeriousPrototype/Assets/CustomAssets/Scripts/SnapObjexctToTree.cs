@@ -22,7 +22,7 @@ public class SnapObjexctToTree : MonoBehaviour
     }
     
     // Runs whenever a collision is detected in the node's capsule triger
-    private void OnCollisionEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         // ONLY EXECTUE IF THE NODE HAS NO CORAL
         if (HasCoral == false)
