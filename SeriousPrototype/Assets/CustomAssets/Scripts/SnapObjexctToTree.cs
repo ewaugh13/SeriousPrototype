@@ -9,12 +9,17 @@ public class SnapObjexctToTree : MonoBehaviour
     private float local_x;
     private float local_y;
     private float local_z;
+    //private ;
     #endregion
 
 
     private void OnTriggerEnter(Collider other)
     {
-        
+        if(other.CompareTag("Coral") && HasCoral == false)
+        {
+            other.gameObject.transform.position = transform.position;
+            HasCoral = true;
+        }
     }
 
     // Start is called before the first frame update
@@ -25,19 +30,6 @@ public class SnapObjexctToTree : MonoBehaviour
         local_x = this.transform.localPosition.x;
         local_y = this.transform.localPosition.y;
         local_z = this.transform.localPosition.z;
-        //CapsuleCollider[] components = gameObject.GetComponents<CapsuleCollider>();
-        //components[0].enabled
-        //foreach (Component component in components)
-        //{
-        //    var type = component.GetType();
-        //    Debug.Log(type);
-        //    if (type.ToString() == "UnityEngine.CapsuleCollider")
-        //    {
-
-        //    }
-
-        //}
-
 
     }
 
