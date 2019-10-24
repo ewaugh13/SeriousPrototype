@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-1896969981088705727
+--- !u!114 &-2760211606219665817
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Gray
-  m_Shader: {fileID: -6465566751694194690, guid: b409ea71e10761c4f9cccbd54ce1928f,
+  m_Name: M_RockTest
+  m_Shader: {fileID: -6465566751694194690, guid: c02cbca7552e2d44cafbe60646ec15cc,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -33,12 +33,12 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - Texture2D_6054A877:
+    - Texture2D_2797F5C0:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - Texture2D_76A878E3:
-        m_Texture: {fileID: 2800000, guid: c39ede61045523446b24b5f75c320865, type: 3}
+    - Texture2D_C3D77986:
+        m_Texture: {fileID: 2800000, guid: 4b0a68c3f65cba946969dc1fe74ff97a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
@@ -69,12 +69,20 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Triplanar_C59856D5_Texture_1:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Boolean_6D4E22F6: 0
-    - Boolean_8D0602DA: 1
-    - Boolean_D36E6FE1: 1
-    - Vector1_2E018824: 0
-    - Vector1_9936BB87: 1
+    - Vector1_63F86C7C: 0.5
+    - Vector1_77AA85E1: 0.1
+    - Vector1_83821D81: 0.01
+    - Vector1_8571FDF6: 1.82
+    - Vector1_8CFD2F9A: 9.71
+    - Vector1_D1D28778: 0.1
+    - Vector1_D7CCE50B: 1.27
+    - Vector1_EE3F3726: 0.1
+    - Vector1_F928DE1B: 2.97
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -97,9 +105,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_5E8A130C: {r: 0, g: 0, b: 0, a: 0}
-    - Color_FCB01710: {r: 1, g: 0.7051303, b: 0, a: 0}
     - _BaseColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+    - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
