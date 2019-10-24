@@ -17,8 +17,10 @@ public class SnapObjexctToTree : MonoBehaviour
     {
         if(other.CompareTag("Coral") && HasCoral == false)
         {
-            other.gameObject.transform.position = transform.position;
+            other.gameObject.transform.position = this.transform.position;
+            other.gameObject.transform.eulerAngles = new Vector3(0, 0, 0);
             HasCoral = true;
+            this.enabled = false;
         }
     }
 
