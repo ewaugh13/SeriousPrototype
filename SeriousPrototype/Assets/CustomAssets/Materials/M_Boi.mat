@@ -34,7 +34,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Texture2D_6054A877:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 6c026b5b96368124a981987c5acb7279, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_76A878E3:
@@ -74,7 +74,7 @@ Material:
     - Boolean_8D0602DA: 1
     - Boolean_D36E6FE1: 1
     - Vector1_2E018824: 0
-    - Vector1_9936BB87: 1
+    - Vector1_9936BB87: 0.5
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1

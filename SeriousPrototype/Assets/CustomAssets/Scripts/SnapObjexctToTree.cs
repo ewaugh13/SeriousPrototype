@@ -25,7 +25,7 @@ public class SnapObjexctToTree : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -33,9 +33,19 @@ public class SnapObjexctToTree : MonoBehaviour
         if (other.CompareTag("Coral") && HasCoral == false)
         {
             other.gameObject.transform.position = this.transform.position;
+            other.gameObject.transform.position -= new Vector3(0, 0.10f, 0);
             other.gameObject.transform.eulerAngles = new Vector3(0, 0, 0);
             HasCoral = true;
             this.enabled = false;
+            other.gameObject.isStatic = true;
+            other.attachedRigidbody.useGravity = false;
+            other.attachedRigidbody.isKinematic = true;
+
+
+            Debug.Log(other.transform);
+            //other.attachedRigidbody.freezeRotation = true;
+            //Debug.Log(other.gameObject.transform.position);
+
         }
     }
 }
