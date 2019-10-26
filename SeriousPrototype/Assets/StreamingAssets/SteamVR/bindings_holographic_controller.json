@@ -4,6 +4,10 @@
    "app_key" : "application.generated.unity.seriousprototype.exe",
    "bindings" : {
       "/actions/buggy" : {
+         "chords" : [],
+         "haptics" : [],
+         "poses" : [],
+         "skeleton" : [],
          "sources" : [
             {
                "inputs" : {
@@ -80,6 +84,7 @@
          ]
       },
       "/actions/default" : {
+         "chords" : [],
          "haptics" : [
             {
                "output" : "/actions/default/out/haptic",
@@ -100,6 +105,7 @@
                "path" : "/user/hand/right/pose/raw"
             }
          ],
+         "skeleton" : [],
          "sources" : [
             {
                "inputs" : {
@@ -264,6 +270,10 @@
          ]
       },
       "/actions/platformer" : {
+         "chords" : [],
+         "haptics" : [],
+         "poses" : [],
+         "skeleton" : [],
          "sources" : [
             {
                "inputs" : {
@@ -304,11 +314,15 @@
          ]
       },
       "/actions/scissor" : {
+         "chords" : [],
+         "haptics" : [],
+         "poses" : [],
+         "skeleton" : [],
          "sources" : [
             {
                "inputs" : {
                   "click" : {
-                     "output" : "/actions/scissor/in/scissorsqueeze"
+                     "output" : "/actions/scissor/in/scissorsqueezeleft"
                   }
                },
                "mode" : "button",
@@ -317,7 +331,7 @@
             {
                "inputs" : {
                   "click" : {
-                     "output" : "/actions/scissor/in/scissorsqueeze"
+                     "output" : "/actions/scissor/in/scissorsqueezeright"
                   }
                },
                "mode" : "button",
@@ -328,7 +342,7 @@
    },
    "category" : "steamvr_input",
    "controller_type" : "holographic_controller",
-   "description" : "Added scissor",
+   "description" : "Added scissor left and right difference",
    "name" : "My SeriousPrototype [Testing] configuration for Windows Mixed Reality Controller",
    "options" : {},
    "simulated_actions" : []

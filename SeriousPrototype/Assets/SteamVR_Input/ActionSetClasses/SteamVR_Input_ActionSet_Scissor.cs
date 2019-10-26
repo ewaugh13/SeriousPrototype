@@ -17,11 +17,19 @@ namespace Valve.VR
     public class SteamVR_Input_ActionSet_Scissor : Valve.VR.SteamVR_ActionSet
     {
         
-        public virtual SteamVR_Action_Boolean ScissorSqueeze
+        public virtual SteamVR_Action_Boolean ScissorSqueezeLeft
         {
             get
             {
-                return SteamVR_Actions.scissor_ScissorSqueeze;
+                return SteamVR_Actions.scissor_ScissorSqueezeLeft;
+            }
+        }
+        
+        public virtual SteamVR_Action_Boolean ScissorSqueezeRight
+        {
+            get
+            {
+                return SteamVR_Actions.scissor_ScissorSqueezeRight;
             }
         }
     }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using Valve.VR;
 
@@ -50,6 +51,20 @@ public class ScissorCut : MonoBehaviour
 
     public void cutMotion(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
     {
+        if(fromSource.Equals(SteamVR_Input_Sources.LeftHand))
+        {
+            if(!this.gameObject.transform.parent.gameObject.name.Contains("LeftHand"))
+            {
+                return;
+            }
+        }
+        else if (fromSource.Equals(SteamVR_Input_Sources.RightHand))
+        {
+            if (!this.gameObject.transform.parent.gameObject.name.Contains("RightHand"))
+            {
+                return;
+            }
+        }
         float currentXPosTop = this.scissorTop.GetComponent<Transform>().localPosition.x;
         float currentYRotationTop = this.scissorTop.GetComponent<Transform>().localEulerAngles.y;
         float currentZPosTop = this.scissorTop.GetComponent<Transform>().localPosition.z;
@@ -59,7 +74,7 @@ public class ScissorCut : MonoBehaviour
         float currentZPosBot = this.scissorBot.GetComponent<Transform>().localPosition.z;
 
         // if the degrees need to be negative to for correct rotation
-        if(currentYRotationBot > rotateYAmount)
+        if (currentYRotationBot > rotateYAmount)
         {
             currentYRotationBot -= 360;
         }
@@ -84,13 +99,13 @@ public class ScissorCut : MonoBehaviour
         }
     }
 
-    private IEnumerator moveScissor(GameObject scissorHalf, float startYRotation, float endYRotation, 
+    private IEnumerator moveScissor(GameObject scissorHalf, float startYRotation, float endYRotation,
         float startXPos, float endXPos, float startZPos, float endZPos, float time, bool isCutting)
     {
         float elapsedTime = 0;
         while (elapsedTime < time)
         {
-            if(isCutting != this.cutting)
+            if (isCutting != this.cutting)
             {
                 elapsedTime = time;
                 yield break;

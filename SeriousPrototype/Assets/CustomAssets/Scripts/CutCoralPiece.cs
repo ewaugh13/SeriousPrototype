@@ -16,11 +16,15 @@ public class CutCoralPiece : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        collision.collider.enabled = false;
-        foreach(ContactPoint contact in collision.contacts)
+        if (collision.gameObject.tag.Equals("Scissors") || collision.gameObject.tag.Equals("Coral"))
         {
-            Debug.Log("X:" + contact.point.x + ", Y:" + contact.point.y + ", Z:" + contact.point.z);
+            Debug.Log("Here");
+            //collision.collider.enabled = false;
+            foreach (ContactPoint contact in collision.contacts)
+            {
+                Debug.Log("X:" + contact.point.x + ", Y:" + contact.point.y + ", Z:" + contact.point.z);
+            }
+            Collider collider = collision.collider;
         }
-        Collider collider = collision.collider;
     }
 }

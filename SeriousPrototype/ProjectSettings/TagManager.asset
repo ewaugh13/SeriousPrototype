@@ -7,6 +7,7 @@ TagManager:
   - projectile
   - FxTemporaire
   - Coral
+  - Scissors
   layers:
   - Default
   - TransparentFX

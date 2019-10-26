@@ -103,9 +103,9 @@ GameObject:
   - component: {fileID: 6568869828738810623}
   - component: {fileID: 6486180239544388529}
   - component: {fileID: 6486180240388571787}
-  - component: {fileID: 6486180308108717765}
   - component: {fileID: 6486180239456443563}
-  - component: {fileID: 6599186837597939428}
+  - component: {fileID: 1942211781}
+  - component: {fileID: 5693945378521188507}
   m_Layer: 0
   m_Name: InteractableTip
   m_TagString: Untagged
@@ -251,23 +251,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &6486180308108717765
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6599186837597939429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 037de2161ddbc6f4e96de7dd85ea6686, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetCollider: {fileID: 0}
-  spawnObjectOnCollision: {fileID: 1000012514662164, guid: ada35c93b68ad004d9b4e7bd686cf189,
-    type: 3}
-  colorSpawnedObject: 1
-  destroyOnTargetCollision: 1
 --- !u!114 &6486180239456443563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -297,7 +280,7 @@ MonoBehaviour:
   previewPoseSelection: 0
   blendingBehaviours: []
   scale: 1
---- !u!114 &6599186837597939428
+--- !u!114 &1942211781
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -306,14 +289,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 6599186837597939429}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9172bbb2e6dd7e4a86c0d1ea19b7e49, type: 3}
+  m_Script: {fileID: 11500000, guid: bf1320e51a66a214da1eb9976e9e8cec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5693945378521188507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6599186837597939429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffefbea063cab884ca33e5a449e5c22c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   attachmentFlags: 44
   attachmentOffset: {fileID: 0}
   catchingSpeedThreshold: -1
   releaseVelocityStyle: 0
-  releaseVelocityTimeOffset: 0
+  releaseVelocityTimeOffset: -0.011
   scaleReleaseVelocity: 1.1
   scaleReleaseVelocityThreshold: -1
   scaleReleaseVelocityCurve:
@@ -357,5 +352,3 @@ MonoBehaviour:
     m_TypeName: Valve.VR.InteractionSystem.HandEvent, SteamVR, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   interactable: {fileID: 0}
-  gripOffset: {fileID: 0}
-  pinchOffset: {fileID: 0}

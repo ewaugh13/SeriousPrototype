@@ -83,7 +83,11 @@
       "requirement": "optional"
     },
     {
-      "name": "/actions/Scissor/in/ScissorSqueeze",
+      "name": "/actions/Scissor/in/ScissorSqueezeLeft",
+      "type": "boolean"
+    },
+    {
+      "name": "/actions/Scissor/in/ScissorSqueezeRight",
       "type": "boolean"
     }
   ],
