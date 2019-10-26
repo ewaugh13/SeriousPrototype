@@ -4,25 +4,12 @@ using UnityEngine;
 
 public class SnapObjexctToTree : MonoBehaviour
 {
-    #region Instance Variables
+    #region Hidden Variables
     private bool HasCoral;
     private float local_x;
     private float local_y;
     private float local_z;
-    //private ;
     #endregion
-
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.CompareTag("Coral") && HasCoral == false)
-        {
-            other.gameObject.transform.position = this.transform.position;
-            other.gameObject.transform.eulerAngles = new Vector3(0, 0, 0);
-            HasCoral = true;
-            this.enabled = false;
-        }
-    }
 
     // Start is called before the first frame update
     void Start()
@@ -39,5 +26,16 @@ public class SnapObjexctToTree : MonoBehaviour
     void Update()
     {
 
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Coral") && HasCoral == false)
+        {
+            other.gameObject.transform.position = this.transform.position;
+            other.gameObject.transform.eulerAngles = new Vector3(0, 0, 0);
+            HasCoral = true;
+            this.enabled = false;
+        }
     }
 }
