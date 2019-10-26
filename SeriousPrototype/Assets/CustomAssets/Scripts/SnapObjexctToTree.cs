@@ -25,8 +25,7 @@ public class SnapObjexctToTree : MonoBehaviour
             other.gameObject.isStatic = true;
             other.attachedRigidbody.useGravity = false;
             other.attachedRigidbody.isKinematic = true;
-            ScriptableObject[] scripts = other.gameObject.GetComponents<ScriptableObject>();
-
+            
 
             Debug.Log(other.transform);
             //other.attachedRigidbody.freezeRotation = true;
