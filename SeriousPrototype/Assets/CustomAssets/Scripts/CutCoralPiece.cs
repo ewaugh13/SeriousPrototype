@@ -1,30 +1,66 @@
-﻿using UnityEngine;
+﻿using EzySlice;
+using UnityEngine;
+using Valve.VR.InteractionSystem;
 
 public class CutCoralPiece : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    private const string CUT_PLANE = "CutPlane";
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag.Equals("Scissors") || collision.gameObject.tag.Equals("Coral"))
+        if (collision.gameObject.tag.Equals("Scissors") && collision.gameObject.name.Contains("Clone"))
         {
-            Debug.Log("Here");
-            //collision.collider.enabled = false;
-            foreach (ContactPoint contact in collision.contacts)
+            GameObject cutPlane = collision.gameObject.transform.Find(CUT_PLANE).gameObject;
+            PlaneUsageExample planeExample = cutPlane.GetComponent<PlaneUsageExample>();
+            Material cutMaterial = this.gameObject.GetComponent<Renderer>().material;
+            SlicedHull hull = planeExample.SliceObject(this.gameObject, null);
+            if (hull != null)
             {
-                Debug.Log("X:" + contact.point.x + ", Y:" + contact.point.y + ", Z:" + contact.point.z);
+                GameObject piece1 = hull.CreateLowerHull(this.gameObject, cutMaterial);
+                addNecessaryComponents(piece1);
+
+                GameObject piece2 = hull.CreateUpperHull(this.gameObject, cutMaterial);
+                addNecessaryComponents(piece2);
+
+                Destroy(this.gameObject);
+                Destroy(collision.gameObject);
             }
-            Collider collider = collision.collider;
         }
+    }
+
+    private void addNecessaryComponents(GameObject piece)
+    {
+        piece.AddComponent<BoxCollider>();
+        piece.AddComponent<Rigidbody>();
+
+        piece.transform.rotation = this.gameObject.transform.rotation;
+        if(this.gameObject.transform.parent != null && this.gameObject.transform.parent.name.Contains("Hand"))
+        {
+            piece.transform.position = this.gameObject.transform.parent.transform.position;
+        }
+        else
+        {
+            piece.transform.parent = this.gameObject.transform.parent;
+            piece.transform.position = this.gameObject.transform.position;
+        }
+
+        // copy over steam vr interactable stuff
+        Interactable interactable = this.gameObject.GetComponent<Interactable>();
+        Interactable newInteractable = piece.AddComponent<Interactable>();
+        newInteractable.hideHandOnAttach = interactable.hideControllerOnAttach;
+        newInteractable.hideSkeletonOnAttach = interactable.hideSkeletonOnAttach;
+        newInteractable.hideControllerOnAttach = interactable.hideControllerOnAttach;
+        newInteractable.handAnimationOnPickup = interactable.handAnimationOnPickup;
+        newInteractable.useHandObjectAttachmentPoint = interactable.useHandObjectAttachmentPoint;
+        newInteractable.attachEaseIn = interactable.attachEaseIn;
+        newInteractable.snapAttachEaseInTime = interactable.snapAttachEaseInTime;
+        newInteractable.snapAttachEaseInCompleted = interactable.snapAttachEaseInCompleted;
+        newInteractable.handFollowTransform = interactable.handFollowTransform;
+        newInteractable.highlightOnHover = interactable.highlightOnHover;
+
+        // TODO add the rest of components
+        // Set up tag properly
+        // See why object might fall through table
+        // Possibly change names?
     }
 }

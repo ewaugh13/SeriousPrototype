@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using Valve.VR;
 
@@ -11,7 +10,7 @@ public class ScissorCut : MonoBehaviour
     private SteamVR_Action_Boolean scissorSqueeze = null;
     [Tooltip("The steam vr input source")]
     [SerializeField]
-    private SteamVR_Input_Sources handType;
+    private SteamVR_Input_Sources handType = SteamVR_Input_Sources.Any;
     [Tooltip("The top half of the scissors")]
     [SerializeField]
     private GameObject scissorTop = null;
@@ -51,9 +50,13 @@ public class ScissorCut : MonoBehaviour
 
     public void cutMotion(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
     {
-        if(fromSource.Equals(SteamVR_Input_Sources.LeftHand))
+        if (fromSource.Equals(SteamVR_Input_Sources.LeftHand))
         {
-            if(!this.gameObject.transform.parent.gameObject.name.Contains("LeftHand"))
+            if(this.gameObject.transform == null || this.gameObject.transform.parent == null || this.gameObject.transform.parent.gameObject == null)
+            {
+                return;
+            }
+            if (!this.gameObject.transform.parent.gameObject.name.Contains("LeftHand"))
             {
                 return;
             }
