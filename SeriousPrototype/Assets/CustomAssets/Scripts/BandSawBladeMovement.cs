@@ -13,10 +13,12 @@ public class BandSawBladeMovement : MonoBehaviour
     [Tooltip("The smaller the time the faster the blade moves")]
     [SerializeField]
     private float timeToMove = .5f;
+    [Tooltip("Whether the band saw machine is on or not")]
+    [SerializeField]
+    private bool machineOn;
     #endregion
 
     #region Hidden Variables
-    private bool machineOn;
     private bool moving;
 
     private float xPosition;
@@ -26,7 +28,6 @@ public class BandSawBladeMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        machineOn = false;
         moving = false;
 
         xPosition = this.gameObject.GetComponent<Transform>().localPosition.x;
