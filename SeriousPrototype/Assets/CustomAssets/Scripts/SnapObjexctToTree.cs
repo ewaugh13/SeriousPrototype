@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR.InteractionSystem;
 
 public class SnapObjexctToTree : MonoBehaviour
 {
@@ -33,16 +34,28 @@ public class SnapObjexctToTree : MonoBehaviour
         if (other.CompareTag("Coral") && HasCoral == false)
         {
             other.gameObject.transform.position = this.transform.position;
-            other.gameObject.transform.position -= new Vector3(0, 0.10f, 0);
+            //other.gameObject.transform.position -= new Vector3(0, 0.10f, 0);
             other.gameObject.transform.eulerAngles = new Vector3(0, 0, 0);
             HasCoral = true;
             this.enabled = false;
             other.gameObject.isStatic = true;
             other.attachedRigidbody.useGravity = false;
             other.attachedRigidbody.isKinematic = true;
-            var script = other.GetComponent<Valve.VR.InteractionSystem.Interactable>();
+
+            var node = this.gameObject.GetComponent<MeshRenderer>();
+            node.enabled = false;
+
+            var script = other.gameObject.GetComponent<Valve.VR.InteractionSystem.Interactable>();
             script.enabled = false;
-            // script = other.GetComponent<>()
+
+            var script1 = other.gameObject.GetComponent<Valve.VR.SteamVR_Skeleton_Poser> ();
+            script1.enabled = false;
+
+            var script2 = other.gameObject.GetComponent<Valve.VR.InteractionSystem.Throwable>();
+            script2.enabled = false;
+
+            var script3 = other.gameObject.GetComponent<InteractableHoverEvents>();
+            script3.enabled = false;
 
 
             Debug.Log(other.transform);
