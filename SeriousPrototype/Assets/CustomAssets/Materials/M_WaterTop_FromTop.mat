@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: M_WaterTop_FromTop
-  m_Shader: {fileID: -6465566751694194690, guid: c02cbca7552e2d44cafbe60646ec15cc,
+  m_Shader: {fileID: -6465566751694194690, guid: 103ff7ecc2f362e4ebd12d2a9cddec6a,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -38,7 +38,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_304121DE:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 88dc5d12c5821bf4d99edd588f6c19e6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_32A3E5C3:
@@ -46,7 +46,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_C08EB0B9:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 4fb208c73cbeb8a40bd9bf8b6397ea47, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_C3D77986:
@@ -89,7 +89,7 @@ Material:
     - Boolean_F1DEA9D0: 1
     - Boolean_F79BF3EA: 1
     - Boolean_F7F5D195: 1
-    - Vector1_5D60EE70: 0.569
+    - Vector1_5D60EE70: 0.78
     - Vector1_5EBCCDF5: 0.189
     - Vector1_600D21B4: 0.93
     - Vector1_63F86C7C: 1
