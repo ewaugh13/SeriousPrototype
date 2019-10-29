@@ -47,8 +47,8 @@ public class PoolColliders : MonoBehaviour
 
             // Teleport the player
             Debug.Log("Teleporting");
-            //GameObject playerObject = GameObject.FindGameObjectsWithTag("Player")[0];
-            //playerObject.transform.position = Vector3.zero;
+            GameObject playerObject = GameObject.FindGameObjectsWithTag("Player")[0];
+            playerObject.transform.position = new Vector3 (-42.4f, 3.345f, 53.299f);
         }
     }
     #endregion

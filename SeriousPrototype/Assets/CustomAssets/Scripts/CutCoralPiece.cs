@@ -39,6 +39,7 @@ public class CutCoralPiece : MonoBehaviour
                         Destroy(coralClone.GetComponent<BoxCollider>());
                         coralClone.AddComponent<BoxCollider>();
                         coralClone.GetComponent<Rigidbody>().isKinematic = false;
+                        coralClone.GetComponent<Rigidbody>().useGravity = true;
 
                         GameObject piece2 = hull.CreateLowerHull(this.gameObject, cutMaterial);
 
