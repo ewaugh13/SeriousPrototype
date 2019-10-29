@@ -48,7 +48,6 @@ public class CoralDiscCollider : MonoBehaviour
 
             // Teleport the player
             GameObject playerObject = GameObject.FindGameObjectsWithTag("Player")[0];
-            playerObject.transform.position = new Vector3(-46.066f, 0f, -13.387f);
         }
     }
 }
