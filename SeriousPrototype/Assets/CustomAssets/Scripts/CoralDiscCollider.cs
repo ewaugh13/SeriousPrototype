@@ -15,11 +15,11 @@ public class CoralDiscCollider : MonoBehaviour
             // Positioning
             Vector3 spawnLocation = new Vector3();
             spawnLocation.x = gameObject.transform.position.x;
-            spawnLocation.y = gameObject.transform.position.y + 0.10f;
+            spawnLocation.y = gameObject.transform.position.y + 0.05f;
             spawnLocation.z = gameObject.transform.position.z;
 
             // Rotation
-            Quaternion spawnRotation = Quaternion.Euler(0, 0, 0);
+            Quaternion spawnRotation = Quaternion.Euler(0, 90, 0);
 
             // Scale
             //spawnObject.transform.localScale -= new Vector3(0.5f, 0.5f, 0.5f);
@@ -28,11 +28,13 @@ public class CoralDiscCollider : MonoBehaviour
             Instantiate(spawnObject, spawnLocation, spawnRotation);
             Destroy(collision.gameObject);
 
-            // Increasing the Count
-            GameManager.s_numberOfCoralStubs += 1;
+            //// Increasing the Count
+            //GameManager.s_numberOfCoralStubs += 1;
 
-            // CheckStubs
-            CheckStubs();
+            //// CheckStubs
+            //CheckStubs();
+
+            //collision.gameObject.isStatic = true;
         }
     }
 
