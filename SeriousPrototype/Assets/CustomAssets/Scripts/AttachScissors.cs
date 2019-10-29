@@ -49,6 +49,9 @@ namespace Valve.VR.Extras
             if (joint == null && spawn.GetStateDown(trackedObj.inputSource))
             {
                 scissors = GameObject.Instantiate(prefab);
+
+                scissors.AddComponent<ScissorDestroy>();
+
                 scissors.transform.position = attachPoint.transform.position;
                 scissors.transform.rotation = attachPoint.transform.rotation;
 
@@ -100,14 +103,6 @@ namespace Valve.VR.Extras
                         timerForDestruction = 0.0f;
                     }
                 }
-            }
-        }
-
-        private void OnCollisionEnter(Collision collision)
-        {
-            if (!collision.gameObject.tag.Equals("Coral"))
-            {
-                Destroy(this.gameObject);
             }
         }
     }

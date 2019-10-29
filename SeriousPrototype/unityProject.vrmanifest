@@ -5,7 +5,7 @@
       "app_key": "application.generated.unity.seriousprototype.exe",
       "launch_type": "url",
       "url": "steam://launch/",
-      "action_manifest_path": "C:\\Users\\u1274435\\Desktop\\VR PRoject\\SeriousPrototype\\SeriousPrototype\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "action_manifest_path": "C:\\Users\\u0947296\\Desktop\\Semester1\\EAE6100\\SeriousPrototype\\SeriousPrototype\\Assets\\StreamingAssets\\SteamVR\\actions.json",
       "strings": {
         "en_us": {
           "name": "SeriousPrototype [Testing]"
