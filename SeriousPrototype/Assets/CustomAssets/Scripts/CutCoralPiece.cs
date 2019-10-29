@@ -1,9 +1,14 @@
 ﻿using EzySlice;
 using UnityEngine;
-using Valve.VR.InteractionSystem;
 
 public class CutCoralPiece : MonoBehaviour
 {
+    #region Instance Variables
+    [Tooltip("Number of triangles in mesh needed for cutting")]
+    [SerializeField]
+    private int numTriangles = 40;
+    #endregion
+
     private const string CUT_PLANE = "CutPlane";
 
     private void OnCollisionEnter(Collision collision)
@@ -13,54 +18,41 @@ public class CutCoralPiece : MonoBehaviour
             GameObject cutPlane = collision.gameObject.transform.Find(CUT_PLANE).gameObject;
             PlaneUsageExample planeExample = cutPlane.GetComponent<PlaneUsageExample>();
             Material cutMaterial = this.gameObject.GetComponent<Renderer>().material;
-            SlicedHull hull = planeExample.SliceObject(this.gameObject, null);
-            if (hull != null)
+            Mesh objectMesh = this.gameObject.GetComponent<MeshFilter>().sharedMesh;
+            if (objectMesh.triangles.Length > numTriangles)
             {
-                GameObject piece1 = hull.CreateLowerHull(this.gameObject, cutMaterial);
-                addNecessaryComponents(piece1);
+                SlicedHull hull = planeExample.SliceObject(this.gameObject, null);
+                if (hull != null)
+                {
+                    if (hull.upperHull.triangles.Length > numTriangles && hull.lowerHull.triangles.Length > numTriangles)
+                    {
+                        GameObject piece = hull.CreateUpperHull(this.gameObject, cutMaterial);
 
-                GameObject piece2 = hull.CreateUpperHull(this.gameObject, cutMaterial);
-                addNecessaryComponents(piece2);
+                        GameObject coralClone = Instantiate(this.gameObject);
+                        coralClone.transform.position = this.gameObject.transform.position;
 
-                Destroy(this.gameObject);
-                Destroy(collision.gameObject);
+                        coralClone.GetComponent<MeshFilter>().sharedMesh = piece.GetComponent<MeshFilter>().sharedMesh;
+                        coralClone.GetComponent<MeshFilter>().mesh = piece.GetComponent<MeshFilter>().mesh;
+                        coralClone.GetComponent<MeshRenderer>().materials = piece.GetComponent<MeshRenderer>().materials;
+                        Destroy(piece);
+
+                        Destroy(coralClone.GetComponent<BoxCollider>());
+                        coralClone.AddComponent<BoxCollider>();
+                        coralClone.GetComponent<Rigidbody>().isKinematic = false;
+
+                        GameObject piece2 = hull.CreateLowerHull(this.gameObject, cutMaterial);
+
+                        this.gameObject.GetComponent<MeshFilter>().sharedMesh = piece2.GetComponent<MeshFilter>().sharedMesh;
+                        this.gameObject.GetComponent<MeshFilter>().mesh = piece2.GetComponent<MeshFilter>().mesh;
+                        this.gameObject.GetComponent<MeshRenderer>().materials = piece2.GetComponent<MeshRenderer>().materials;
+                        Destroy(piece2);
+                        Destroy(this.gameObject.GetComponent<BoxCollider>());
+                        this.gameObject.AddComponent<BoxCollider>();
+
+                    }
+                }
             }
+            Destroy(collision.gameObject);
         }
-    }
-
-    private void addNecessaryComponents(GameObject piece)
-    {
-        piece.AddComponent<BoxCollider>();
-        piece.AddComponent<Rigidbody>();
-
-        piece.transform.rotation = this.gameObject.transform.rotation;
-        if(this.gameObject.transform.parent != null && this.gameObject.transform.parent.name.Contains("Hand"))
-        {
-            piece.transform.position = this.gameObject.transform.parent.transform.position;
-        }
-        else
-        {
-            piece.transform.parent = this.gameObject.transform.parent;
-            piece.transform.position = this.gameObject.transform.position;
-        }
-
-        // copy over steam vr interactable stuff
-        Interactable interactable = this.gameObject.GetComponent<Interactable>();
-        Interactable newInteractable = piece.AddComponent<Interactable>();
-        newInteractable.hideHandOnAttach = interactable.hideControllerOnAttach;
-        newInteractable.hideSkeletonOnAttach = interactable.hideSkeletonOnAttach;
-        newInteractable.hideControllerOnAttach = interactable.hideControllerOnAttach;
-        newInteractable.handAnimationOnPickup = interactable.handAnimationOnPickup;
-        newInteractable.useHandObjectAttachmentPoint = interactable.useHandObjectAttachmentPoint;
-        newInteractable.attachEaseIn = interactable.attachEaseIn;
-        newInteractable.snapAttachEaseInTime = interactable.snapAttachEaseInTime;
-        newInteractable.snapAttachEaseInCompleted = interactable.snapAttachEaseInCompleted;
-        newInteractable.handFollowTransform = interactable.handFollowTransform;
-        newInteractable.highlightOnHover = interactable.highlightOnHover;
-
-        // TODO add the rest of components
-        // Set up tag properly
-        // See why object might fall through table
-        // Possibly change names?
     }
 }
