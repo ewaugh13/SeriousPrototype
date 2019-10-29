@@ -40,6 +40,9 @@ public class SnapObjexctToTree : MonoBehaviour
             other.gameObject.isStatic = true;
             other.attachedRigidbody.useGravity = false;
             other.attachedRigidbody.isKinematic = true;
+            var script = other.GetComponent<Valve.VR.InteractionSystem.Interactable>();
+            script.enabled = false;
+            // script = other.GetComponent<>()
 
 
             Debug.Log(other.transform);

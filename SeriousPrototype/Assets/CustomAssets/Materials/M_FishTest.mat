@@ -61,11 +61,13 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Boolean_1EE86915: 1
+    - Boolean_5918867D: 0
     - Boolean_931E8E52: 1
     - Boolean_E7E99353: 0
     - Boolean_EAE8797C: 1
     - Vector1_1E8679A4: 1
-    - Vector1_254CBF59: 0.1
+    - Vector1_254CBF59: 0.2
     - Vector1_3BA8DE16: 50
     - Vector1_59C007CE: 5
     - Vector1_9FB45505: 0.8
