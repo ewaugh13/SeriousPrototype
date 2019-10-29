@@ -10,17 +10,45 @@ public class CoralDiscCollider : MonoBehaviour
     {
         if(collision.gameObject.tag == "Coral")
         {
-            Debug.Log("Hello");
+            //Debug.Log("Hello");
 
+            // Positioning
             Vector3 spawnLocation = new Vector3();
-            spawnLocation.x = collision.gameObject.transform.position.x;
-            spawnLocation.y = collision.gameObject.transform.position.y;
-            spawnLocation.z = collision.gameObject.transform.position.z;
+            spawnLocation.x = gameObject.transform.position.x;
+            spawnLocation.y = gameObject.transform.position.y + 0.10f;
+            spawnLocation.z = gameObject.transform.position.z;
 
-            Quaternion spawnRotation = collision.gameObject.transform.rotation;
+            // Rotation
+            Quaternion spawnRotation = Quaternion.Euler(0, 0, 0);
 
+            // Scale
+            //spawnObject.transform.localScale -= new Vector3(0.5f, 0.5f, 0.5f);
+
+            // Creation and Destruction
             Instantiate(spawnObject, spawnLocation, spawnRotation);
             Destroy(collision.gameObject);
+
+            // Increasing the Count
+            GameManager.s_numberOfCoralStubs += 1;
+
+            // CheckStubs
+            CheckStubs();
+        }
+    }
+
+    public void CheckStubs()
+    {
+        Debug.Log(GameManager.s_numberOfCoralStubs);
+
+        if (GameManager.s_numberOfCoralStubs == 3)
+        {
+            // Delay
+            
+            // Play Voiceover
+
+            // Teleport the player
+            GameObject playerObject = GameObject.FindGameObjectsWithTag("Player")[0];
+            playerObject.transform.position = new Vector3(-45.207f, 0f, -14.542f);
         }
     }
 }
