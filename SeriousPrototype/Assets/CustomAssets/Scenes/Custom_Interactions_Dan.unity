@@ -31058,6 +31058,11 @@ PrefabInstance:
       propertyPath: onAttachedToHand.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 114000010795441088, guid: fb710a001890d9a44bb74a8ce4f20cc0,
+        type: 3}
+      propertyPath: onHandHoverBegin.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 2100000, guid: 6729a932de5127b419aacfd9be7dde0d, type: 2}
     - target: {fileID: 23000011290666768, guid: fb710a001890d9a44bb74a8ce4f20cc0,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
