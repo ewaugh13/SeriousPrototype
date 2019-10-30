@@ -34,7 +34,6 @@ public class AttachToBucket : MonoBehaviour
             Destroy(collision.gameObject.GetComponent<Throwable>());
             Destroy(collision.gameObject.GetComponent<InteractableHoverEvents>());
             Destroy(collision.gameObject.GetComponent<Interactable>());
-            collision.gameObject.GetComponent<SteamVR_Skeleton_Poser>().enabled = false;
             collision.gameObject.GetComponent<BoxCollider>().enabled = false;
             collision.gameObject.GetComponent<Rigidbody>().useGravity = false;
 
