@@ -60,6 +60,7 @@ public class AttachToBucket : MonoBehaviour
 
             copyCoral.GetComponent<BoxCollider>().enabled = true;
             copyCoral.GetComponent<Rigidbody>().useGravity = true;
+            Destroy(copyCoral.GetComponent<CutCoralPiece>());
         }
     }
 
