@@ -5,7 +5,7 @@ using Valve.VR.InteractionSystem;
 
 public class UnderwaterStubs : MonoBehaviour
 {
-    //public GameObject spawnObject;
+    public GameObject playerObject;
 
     public void OnCollisionEnter(Collision collision)
     {
@@ -36,6 +36,13 @@ public class UnderwaterStubs : MonoBehaviour
             collision.gameObject.transform.position = gameObject.transform.position;
             collision.gameObject.GetComponent<Rigidbody>().isKinematic = true;
             Destroy(gameObject);
+
+            GameManager.s_underwaterCoralStubs++;
+
+            if (GameManager.s_underwaterCoralStubs == 4)
+            {
+                playerObject.transform.position = new Vector3(-234.91f, 3.345f, 53.299f);
+            }
 
             //collision.gameObject.transform.SetParent(gameObject.transform);
         }
