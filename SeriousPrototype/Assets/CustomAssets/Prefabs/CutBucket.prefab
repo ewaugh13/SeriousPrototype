@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 574854135852951309}
+  - component: {fileID: 218163366}
+  - component: {fileID: 218163365}
   m_Layer: 0
   m_Name: CutBucket
   m_TagString: Untagged
@@ -33,6 +35,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 180, z: -4.5429993}
+--- !u!135 &218163366
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3576160549735175454}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 70
+  m_Center: {x: 0, y: 0, z: -112.3}
+--- !u!114 &218163365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3576160549735175454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4773b8fb01b10214d8242e3d6bea3375, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisBucket: {fileID: 8790987285417871717}
+  otherBucket: {fileID: 0}
+  teleportPosition: {fileID: 0}
 --- !u!1 &4519945904702135315
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,8 +231,9 @@ GameObject:
   - component: {fileID: 1204454756603025426}
   - component: {fileID: 1444341051238421765}
   - component: {fileID: 5553724655441863253}
+  - component: {fileID: 4337058812964920497}
   m_Layer: 0
-  m_Name: Tube01
+  m_Name: CutTube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -282,3 +313,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: -7505178035815405708, guid: 28ad811ae0a8df14fa9ec9dfec82e04d, type: 3}
+--- !u!114 &4337058812964920497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8790987285417871717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4773b8fb01b10214d8242e3d6bea3375, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisBucket: {fileID: 0}
+  otherBucket: {fileID: 0}
+  teleportPosition: {fileID: 0}

@@ -26,6 +26,10 @@ public class AttachToBucket : MonoBehaviour
             collision.gameObject.transform.parent = thisBucket.gameObject.transform;
             collision.gameObject.GetComponent<Renderer>().material = collision.gameObject.GetComponent<CutCoralPiece>().getOriginalMaterial();
 
+            GameObject copyCoral = Instantiate(collision.gameObject);
+            copyCoral.name = "CopyCoral";
+            copyCoral.GetComponent<CutCoralPiece>().setOriginalScale(collision.gameObject.GetComponent<CutCoralPiece>().getOriginalScale());
+
             Destroy(collision.gameObject.GetComponent<CutCoralPiece>());
             Destroy(collision.gameObject.GetComponent<Throwable>());
             Destroy(collision.gameObject.GetComponent<InteractableHoverEvents>());
@@ -33,9 +37,6 @@ public class AttachToBucket : MonoBehaviour
             collision.gameObject.GetComponent<SteamVR_Skeleton_Poser>().enabled = false;
             collision.gameObject.GetComponent<BoxCollider>().enabled = false;
             collision.gameObject.GetComponent<Rigidbody>().useGravity = false;
-
-            GameObject copyCoral = Instantiate(collision.gameObject);
-            copyCoral.name = "CopyCoral";
 
             Material originalMaterial = copyCoral.GetComponent<CutCoralPiece>().getOriginalMaterial();
             Texture originalTexture = copyCoral.GetComponent<CutCoralPiece>().getOriginalMaterial().mainTexture;
@@ -60,7 +61,6 @@ public class AttachToBucket : MonoBehaviour
 
             copyCoral.GetComponent<BoxCollider>().enabled = true;
             copyCoral.GetComponent<Rigidbody>().useGravity = true;
-            Destroy(copyCoral.GetComponent<CutCoralPiece>());
         }
     }
 

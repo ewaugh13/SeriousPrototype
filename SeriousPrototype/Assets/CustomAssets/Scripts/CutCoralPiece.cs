@@ -10,9 +10,14 @@ public class CutCoralPiece : MonoBehaviour
     [Tooltip("Original material of the coral piece")]
     [SerializeField]
     private Material originalMaterial = null;
+    [Tooltip("Original scale of the model")]
+    [SerializeField]
+    private Vector3 originalScale = Vector3.one;
     #endregion
 
     private const string CUT_PLANE = "CutPlane";
+
+
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -63,5 +68,15 @@ public class CutCoralPiece : MonoBehaviour
     public Material getOriginalMaterial()
     {
         return this.originalMaterial;
+    }
+
+    public Vector3 getOriginalScale()
+    {
+        return this.originalScale;
+    }
+
+    public void setOriginalScale(Vector3 updatedOriginalScale)
+    {
+        this.originalScale = updatedOriginalScale;
     }
 }

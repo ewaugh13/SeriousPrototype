@@ -9,7 +9,7 @@ public class PoolColliders : MonoBehaviour
     #region AttachCorals
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "CoralStubs")
+        if(collision.gameObject.tag.Equals("CoralStubs"))
         {
             //Debug.Log("Hello");
 

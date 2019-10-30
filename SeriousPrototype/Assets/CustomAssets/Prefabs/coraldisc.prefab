@@ -88,7 +88,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6126092065968897699}
   - component: {fileID: 192228429}
-  - component: {fileID: 3561585131476378819}
+  - component: {fileID: 318119873}
   m_Layer: 0
   m_Name: coraldisc
   m_TagString: Untagged
@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8237bdebec363fa43acecd2235d83360, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!135 &3561585131476378819
+--- !u!135 &318119873
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -135,4 +135,4 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.06
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0.00000047823414, y: 0.000000059604645, z: -0.00000012107193}
