@@ -7,6 +7,9 @@ public class CutCoralPiece : MonoBehaviour
     [Tooltip("Number of triangles in mesh needed for cutting")]
     [SerializeField]
     private int numTriangles = 40;
+    [Tooltip("Original material of the coral piece")]
+    [SerializeField]
+    private Material originalMaterial = null;
     #endregion
 
     private const string CUT_PLANE = "CutPlane";
@@ -17,7 +20,7 @@ public class CutCoralPiece : MonoBehaviour
         {
             GameObject cutPlane = collision.gameObject.transform.Find(CUT_PLANE).gameObject;
             PlaneUsageExample planeExample = cutPlane.GetComponent<PlaneUsageExample>();
-            Material cutMaterial = this.gameObject.GetComponent<Renderer>().material;
+            Material cutMaterial = originalMaterial;
             Mesh objectMesh = this.gameObject.GetComponent<MeshFilter>().sharedMesh;
             if (objectMesh.triangles.Length > numTriangles)
             {
@@ -55,5 +58,10 @@ public class CutCoralPiece : MonoBehaviour
             }
             Destroy(collision.gameObject);
         }
+    }
+
+    public Material getOriginalMaterial()
+    {
+        return this.originalMaterial;
     }
 }

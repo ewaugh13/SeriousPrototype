@@ -4,14 +4,10 @@ using UnityEngine;
 
 public class CoralDiscCollider : MonoBehaviour
 {
-    public GameObject spawnObject;
-
     public void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Coral")
+        if(collision.gameObject.tag.Equals("Coral"))
         {
-            //Debug.Log("Hello");
-
             // Positioning
             Vector3 spawnLocation = new Vector3();
             spawnLocation.x = gameObject.transform.position.x;
@@ -25,11 +21,11 @@ public class CoralDiscCollider : MonoBehaviour
             //spawnObject.transform.localScale -= new Vector3(0.5f, 0.5f, 0.5f);
 
             // Creation and Destruction
-            Instantiate(spawnObject, spawnLocation, spawnRotation);
+            Instantiate(collision.gameObject, spawnLocation, spawnRotation);
             Destroy(collision.gameObject);
 
             // Increasing the Count
-            GameManager.s_numberOfCoralStubs += 1;
+            GameManager.s_numberOfCoralStubs++;
 
             // CheckStubs
             CheckStubs();
@@ -40,14 +36,14 @@ public class CoralDiscCollider : MonoBehaviour
     {
         Debug.Log(GameManager.s_numberOfCoralStubs);
 
-        if (GameManager.s_numberOfCoralStubs == 3)
+        if (GameManager.s_numberOfCoralStubs == GameManager.s_numberOfCoralDiscs)
         {
             // Delay
             
             // Play Voiceover
 
             // Teleport the player
-            GameObject playerObject = GameObject.FindGameObjectsWithTag("Player")[0];
+            // GameObject playerObject = GameObject.FindGameObjectsWithTag("Player")[0];
         }
     }
 }

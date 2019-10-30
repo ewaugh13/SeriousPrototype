@@ -258,12 +258,15 @@ namespace Valve.VR.InteractionSystem
 
         protected virtual void Update()
         {
-            if (highlightOnHover)
+            if (this.enabled)
             {
-                UpdateHighlightRenderers();
+                if (highlightOnHover)
+                {
+                    UpdateHighlightRenderers();
 
-                if (isHovering == false && highlightHolder != null)
-                    Destroy(highlightHolder);
+                    if (isHovering == false && highlightHolder != null)
+                        Destroy(highlightHolder);
+                }
             }
         }
 
@@ -273,20 +276,23 @@ namespace Valve.VR.InteractionSystem
 
         protected virtual void OnAttachedToHand(Hand hand)
         {
-            if (activateActionSetOnAttach != null)
-                activateActionSetOnAttach.Activate(hand.handType);
-
-            if (onAttachedToHand != null)
+            if (this.enabled)
             {
-                onAttachedToHand.Invoke(hand);
-            }
+                if (activateActionSetOnAttach != null)
+                    activateActionSetOnAttach.Activate(hand.handType);
 
-            if (skeletonPoser != null && hand.skeleton != null)
-            {
-                hand.skeleton.BlendToPoser(skeletonPoser, blendToPoseTime);
-            }
+                if (onAttachedToHand != null)
+                {
+                    onAttachedToHand.Invoke(hand);
+                }
 
-            attachedToHand = hand;
+                if (skeletonPoser != null && hand.skeleton != null)
+                {
+                    hand.skeleton.BlendToPoser(skeletonPoser, blendToPoseTime);
+                }
+
+                attachedToHand = hand;
+            }
         }
 
         protected virtual void OnDetachedFromHand(Hand hand)
