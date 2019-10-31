@@ -58,12 +58,14 @@ public class PoolColliders : MonoBehaviour
 
     private void RemoveInteractable(GameObject interactableGameObject)
     {
+        interactableGameObject.SetActive(false);
         Destroy(interactableGameObject.GetComponent<BoxCollider>());
         Destroy(interactableGameObject.GetComponent<SteamVR_Skeleton_Poser>());
         Destroy(interactableGameObject.GetComponent<InteractableHoverEvents>());
         Destroy(interactableGameObject.GetComponent<Throwable>());
         Destroy(interactableGameObject.GetComponent<Interactable>());
         Destroy(interactableGameObject.GetComponent<Rigidbody>());
+        interactableGameObject.SetActive(true);
         //interactableGameObject.GetComponent<Rigidbody>().isKinematic = false;
     }
 }
