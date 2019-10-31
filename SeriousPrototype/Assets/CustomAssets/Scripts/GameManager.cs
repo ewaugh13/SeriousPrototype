@@ -9,4 +9,6 @@ public class GameManager : MonoBehaviour
     public static int s_numberOfCoralStubs = 0;
     public static int s_numberOfCoralDiscs = 3;
     public static int s_underwaterCoralStubs = 0;
+    public static int s_numCoralsInCutBucket = 0;
+    public static int s_numCoralInDishes = 0;
 }

@@ -14,13 +14,25 @@ public class AttachToBucket : MonoBehaviour
     [Tooltip("The position to teleport to")]
     [SerializeField]
     private Transform teleportPosition = null;
+    [Tooltip("Audio Source to play at the end of station 2")]
+    [SerializeField]
+    private AudioSource Station2EndAudio = null;
+
+    #endregion
+
+    #region Hidden Variables
+    private int MaxCoralPieces = 4;
     #endregion
 
     private void OnTriggerEnter(Collider collision)
     {
-
         if (collision.gameObject.tag.Equals("Coral") && !collision.gameObject.name.Contains("Copy"))
         {
+            GameManager.s_numCoralsInCutBucket++;
+            if (GameManager.s_numCoralsInCutBucket == MaxCoralPieces)
+            {
+                Station2EndAudio.Play();
+            }
             string originalTag = collision.gameObject.tag;
             collision.gameObject.tag = "Untagged";
             collision.gameObject.transform.parent = thisBucket.gameObject.transform;
