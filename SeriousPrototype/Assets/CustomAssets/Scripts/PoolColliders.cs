@@ -6,24 +6,23 @@ using Valve.VR.InteractionSystem;
 
 public class PoolColliders : MonoBehaviour
 {
-    public GameObject teleportPoint;
+    #region Instance Variables
+    [Tooltip("The action for squeezing scissors")]
+    [SerializeField]
+    private Transform teleportPoint = null;
+    [Tooltip("Audio Source to play at the end of station 3")]
+    [SerializeField]
+    private AudioSource station3EndAudio = null;
+    [Tooltip("Time to wait for the teleporting to the next area")]
+    [SerializeField]
+    private float timeToWaitForTeleport = 29;
+    #endregion
 
     #region AttachCorals
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag.Equals("CoralStubs"))
         {
-            //Debug.Log("Hello");
-
-            // Positioning
-            Vector3 spawnLocation = new Vector3();
-            spawnLocation.x = gameObject.transform.position.x;
-            spawnLocation.y = gameObject.transform.position.y;
-            spawnLocation.z = gameObject.transform.position.z;
-
-            // Rotation
-            Quaternion spawnRotation = Quaternion.Euler(0, 0, 0);
-
             // Scale
             collision.gameObject.transform.position = gameObject.transform.position;
 
@@ -44,14 +43,8 @@ public class PoolColliders : MonoBehaviour
     {
         if (GameManager.s_numberOfCoralsInTray == 4)
         {
-            // Delay
-
-            // Play Voiceover
-
-            // Teleport the player
-            Debug.Log("Teleporting");
-            GameObject playerObject = GameObject.FindGameObjectsWithTag("Player")[0];
-            playerObject.transform.position = teleportPoint.transform.position;
+            // Teleport the player and play audio source
+            StartCoroutine(waitToTeleport(timeToWaitForTeleport));
         }
     }
     #endregion
@@ -66,6 +59,18 @@ public class PoolColliders : MonoBehaviour
         Destroy(interactableGameObject.GetComponent<Interactable>());
         Destroy(interactableGameObject.GetComponent<Rigidbody>());
         interactableGameObject.SetActive(true);
-        //interactableGameObject.GetComponent<Rigidbody>().isKinematic = false;
+    }
+
+    private IEnumerator waitToTeleport(float timeToWait)
+    {
+        station3EndAudio.Play();
+        float elapsedTime = 0;
+        while (elapsedTime < timeToWait)
+        {
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        GameObject playerObject = GameObject.FindGameObjectsWithTag("Player")[0];
+        playerObject.transform.position = teleportPoint.position;
     }
 }

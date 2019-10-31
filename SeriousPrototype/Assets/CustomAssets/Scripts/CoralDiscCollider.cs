@@ -8,7 +8,7 @@ public class CoralDiscCollider : MonoBehaviour
     #region Instance Variables
     [Tooltip("The parent object")]
     [SerializeField]
-    private GameObject parentObjectDisc;
+    private GameObject parentObjectDisc = null;
     #endregion
 
     public void OnCollisionEnter(Collision collision)
@@ -22,7 +22,7 @@ public class CoralDiscCollider : MonoBehaviour
             spawnLocation.z = gameObject.transform.position.z;
 
             // Rotation
-            Quaternion spawnRotation = Quaternion.Euler(0, 0, 90);
+            Quaternion spawnRotation = Quaternion.Euler(collision.gameObject.GetComponent<CutCoralPiece>().getOriginalRotation());
 
             // Creation and Destruction
             GameObject spawnedObject = Instantiate(collision.gameObject, spawnLocation, spawnRotation);

@@ -13,6 +13,9 @@ public class CutCoralPiece : MonoBehaviour
     [Tooltip("Original scale of the model")]
     [SerializeField]
     private Vector3 originalScale = Vector3.one;
+    [Tooltip("Original rotation of the model")]
+    [SerializeField]
+    private Vector3 originalRotation = Vector3.zero;
     #endregion
 
     private const string CUT_PLANE = "CutPlane";
@@ -73,6 +76,11 @@ public class CutCoralPiece : MonoBehaviour
     public Vector3 getOriginalScale()
     {
         return this.originalScale;
+    }
+
+    public Vector3 getOriginalRotation()
+    {
+        return this.originalRotation;
     }
 
     public void setOriginalScale(Vector3 updatedOriginalScale)

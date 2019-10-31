@@ -26,9 +26,6 @@ public class AttachToBucket : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-
-        //if(GameManager.s_numCoralsInCutBucket == 0)
-        //    Station2EndAudio.Stop();
         if (collision.gameObject.tag.Equals("Coral") && !collision.gameObject.name.Contains("Copy"))
         {
             GameManager.s_numCoralsInCutBucket++;
@@ -77,24 +74,5 @@ public class AttachToBucket : MonoBehaviour
             copyCoral.GetComponent<BoxCollider>().enabled = true;
             copyCoral.GetComponent<Rigidbody>().useGravity = true;
         }
-    }
-
-    private void CopyInteractableHoverEvents(InteractableHoverEvents newInteractable, InteractableHoverEvents originalInteractable)
-    {
-        //newInteractable.activateActionSetOnAttach = originalInteractable.activateActionSetOnAttach;
-        //activateActionSetOnAttach
-        //    hideSkeletonOnAttach
-        //    hideControllerOnAttach
-        //    handAnimationOnPickup
-        //    setRangeOfMotionOnPickup
-        //    OnAttachedToHandDelegate
-        //    OnDetachedFromHandDelegate
-        //    OnAttachedToHandDelegate
-        //    OnDetachedFromHandDelegate
-        //    useHandObjectAttachmentPoint
-        //    attachEaseIn
-        //    snapAttachEaseInCurve
-        //    snapAttachEaseInTime
-        //    snapAttachEaseInCompleted
     }
 }

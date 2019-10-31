@@ -10,12 +10,6 @@ public class DisableStation2TeleportUI : MonoBehaviour
     public GameObject coralAudioInfo1, coralAudioInfo2, coralAudioInfo3, coralAudioInfo4, coralAudioInfo5;
     private bool atStation = false;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         otherObj = other.gameObject;
@@ -32,9 +26,4 @@ public class DisableStation2TeleportUI : MonoBehaviour
             atStation = true;
         }
     }
-
-    private void Update()
-    {
-    }
-
 }

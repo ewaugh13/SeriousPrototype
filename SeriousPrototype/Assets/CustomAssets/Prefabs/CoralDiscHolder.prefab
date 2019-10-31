@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8137892040631382429}
   - component: {fileID: 8137892040631382428}
   - component: {fileID: 6714370005425355787}
-  - component: {fileID: 8407312882233264970}
+  - component: {fileID: 3405722141227304689}
   m_Layer: 0
   m_Name: coraldisc
   m_TagString: Untagged
@@ -219,35 +219,18 @@ MonoBehaviour:
   onDetachedFromHand:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &8407312882233264970
+--- !u!114 &3405722141227304689
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1418774824630834818}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7418c7dd8f977d4e969202d3fa7e926, type: 3}
+  m_Script: {fileID: 11500000, guid: 5fa2b4ad76a830d41a0c70bf602287bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poseEditorExpanded: 1
-  blendEditorExpanded: 1
-  poseNames:
-  - '[not set]'
-  overridePreviewLeftHandPrefab: {fileID: 1000013348574242, guid: 638779290bce1af49b356f33dcc6fccf,
-    type: 3}
-  overridePreviewRightHandPrefab: {fileID: 1000010304998954, guid: 6def53d002137b747aec0b29551e0e25,
-    type: 3}
-  skeletonMainPose: {fileID: 0}
-  skeletonAdditionalPoses: []
-  showLeftPreview: 0
-  showRightPreview: 1
-  previewLeftInstance: {fileID: 0}
-  previewRightInstance: {fileID: 0}
-  previewPoseSelection: 0
-  blendingBehaviours: []
-  scale: 1
 --- !u!1 &4449257756973833977
 GameObject:
   m_ObjectHideFlags: 0
