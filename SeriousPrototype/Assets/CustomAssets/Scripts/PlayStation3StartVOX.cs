@@ -18,7 +18,7 @@ public class PlayStation3StartVOX : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject.tag.Equals("Player"));
+        Debug.Log("Player");
         if (other.gameObject.tag.Equals("Player") && PlayerOnStation == false)
         {
             PlayerOnStation = true;
