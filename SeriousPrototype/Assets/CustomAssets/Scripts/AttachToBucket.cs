@@ -17,9 +17,7 @@ public class AttachToBucket : MonoBehaviour
     [Tooltip("Audio Source to play at the end of station 2")]
     [SerializeField]
     private AudioSource Station2EndAudio = null;
-    [Tooltip("Audio Source to play at station 3 begining")]
-    [SerializeField]
-    private AudioSource Station3Start = null;
+
     #endregion
 
     #region Hidden Variables
