@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR;
+using Valve.VR.InteractionSystem;
 
 public class PoolColliders : MonoBehaviour
 {
-    //public GameObject spawnObject;
+    public GameObject teleportPoint;
 
     #region AttachCorals
     private void OnCollisionEnter(Collision collision)
@@ -14,20 +16,21 @@ public class PoolColliders : MonoBehaviour
             //Debug.Log("Hello");
 
             // Positioning
-            //Vector3 spawnLocation = new Vector3();
-            //spawnLocation.x = gameObject.transform.position.x;
-            //spawnLocation.y = gameObject.transform.position.y + 0.05f;
-            //spawnLocation.z = gameObject.transform.position.z;
+            Vector3 spawnLocation = new Vector3();
+            spawnLocation.x = gameObject.transform.position.x;
+            spawnLocation.y = gameObject.transform.position.y;
+            spawnLocation.z = gameObject.transform.position.z;
 
-            //// Rotation
-            //Quaternion spawnRotation = Quaternion.Euler(0, 0, 0);
+            // Rotation
+            Quaternion spawnRotation = Quaternion.Euler(0, 0, 0);
 
-            //// Scale
-            ////spawnObject.transform.localScale -= new Vector3(0.5f, 0.5f, 0.5f);
+            // Scale
+            collision.gameObject.transform.position = gameObject.transform.position;
 
             //// Creation and Destruction
             //Instantiate(spawnObject, spawnLocation, spawnRotation);
             //Destroy(collision.gameObject);
+            RemoveInteractable(collision.gameObject);
 
             // Increase Count
             GameManager.s_numberOfCoralsInTray++;
@@ -48,8 +51,19 @@ public class PoolColliders : MonoBehaviour
             // Teleport the player
             Debug.Log("Teleporting");
             GameObject playerObject = GameObject.FindGameObjectsWithTag("Player")[0];
-            playerObject.transform.position = new Vector3 (-42.4f, 3.345f, 53.299f);
+            playerObject.transform.position = teleportPoint.transform.position;
         }
     }
     #endregion
+
+    private void RemoveInteractable(GameObject interactableGameObject)
+    {
+        Destroy(interactableGameObject.GetComponent<BoxCollider>());
+        Destroy(interactableGameObject.GetComponent<SteamVR_Skeleton_Poser>());
+        Destroy(interactableGameObject.GetComponent<InteractableHoverEvents>());
+        Destroy(interactableGameObject.GetComponent<Throwable>());
+        Destroy(interactableGameObject.GetComponent<Interactable>());
+        Destroy(interactableGameObject.GetComponent<Rigidbody>());
+        //interactableGameObject.GetComponent<Rigidbody>().isKinematic = false;
+    }
 }
