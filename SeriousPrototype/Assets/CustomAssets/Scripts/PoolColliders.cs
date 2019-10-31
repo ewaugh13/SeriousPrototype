@@ -16,6 +16,9 @@ public class PoolColliders : MonoBehaviour
     [Tooltip("Time to wait for the teleporting to the next area")]
     [SerializeField]
     private float timeToWaitForTeleport = 29;
+    [Tooltip("Original material of the coral piece")]
+    [SerializeField]
+    private Material originalMaterial = null;
     #endregion
 
     #region AttachCorals
@@ -31,12 +34,25 @@ public class PoolColliders : MonoBehaviour
             //Destroy(collision.gameObject);
             RemoveInteractable(collision.gameObject);
 
+            Material[] materials = collision.gameObject.GetComponent<MeshRenderer>().materials;
+            Texture originalTexture = originalMaterial.mainTexture;
+
+            for (int i = 0; i < materials.Length; i++)
+            {
+                if (materials[i].mainTexture != originalTexture)
+                {
+                    collision.gameObject.GetComponent<MeshRenderer>().materials[i].mainTexture = originalTexture;
+                    collision.gameObject.GetComponent<Renderer>().material = originalMaterial;
+                }
+            }
+
             // Increase Count
             GameManager.s_numberOfCoralsInTray++;
         }
 
         // CheckTray
         CheckTray();
+        Destroy(this);
     }
 
     public void CheckTray()
