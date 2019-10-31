@@ -48,11 +48,9 @@ public class PoolColliders : MonoBehaviour
 
             // Increase Count
             GameManager.s_numberOfCoralsInTray++;
+            CheckTray();
+            Destroy(this);
         }
-
-        // CheckTray
-        CheckTray();
-        Destroy(this);
     }
 
     public void CheckTray()
