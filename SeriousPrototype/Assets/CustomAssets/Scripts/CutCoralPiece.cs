@@ -26,6 +26,7 @@ public class CutCoralPiece : MonoBehaviour
     {
         if (collision.gameObject.tag.Equals("Scissors") && collision.gameObject.name.Contains("Clone"))
         {
+            Destroy(this.gameObject.GetComponent<ResetDroppedObject>());
             GameObject cutPlane = collision.gameObject.transform.Find(CUT_PLANE).gameObject;
             PlaneUsageExample planeExample = cutPlane.GetComponent<PlaneUsageExample>();
             Material cutMaterial = originalMaterial;

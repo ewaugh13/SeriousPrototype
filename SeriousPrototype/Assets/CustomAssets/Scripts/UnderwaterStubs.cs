@@ -36,7 +36,11 @@ public class UnderwaterStubs : MonoBehaviour
 
             collision.gameObject.transform.position = gameObject.transform.position;
             collision.gameObject.GetComponent<Rigidbody>().isKinematic = true;
-            Destroy(gameObject);
+            collision.gameObject.SetActive(false);
+            collision.gameObject.GetComponent<BoxCollider>().enabled = false;
+            Destroy(collision.gameObject.GetComponent<Rigidbody>());
+            collision.gameObject.SetActive(true);
+            Destroy(this.gameObject);
 
             GameManager.s_underwaterCoralStubs++;
 
