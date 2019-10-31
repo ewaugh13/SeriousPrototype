@@ -22,6 +22,26 @@ public class PoolColliders : MonoBehaviour
     [Tooltip("Original material of the coral piece")]
     [SerializeField]
     private Material originalMaterial = null;
+
+    [Tooltip("Prefab of great star coral")]
+    [SerializeField]
+    private GameObject greatStarCoral = null;
+    [Tooltip("Prefab of stag horn coral")]
+    [SerializeField]
+    private GameObject stagHornCoral = null;
+    [Tooltip("Prefab of mountainous star coral")]
+    [SerializeField]
+    private GameObject mountainousStarCoral = null;
+    [Tooltip("Prefab of pillar coral")]
+    [SerializeField]
+    private GameObject pillarCoral = null;
+    [Tooltip("Prefab of elk horn coral")]
+    [SerializeField]
+    private GameObject elkHornCoral = null;
+
+    [Tooltip("Spawn Point of new coral")]
+    [SerializeField]
+    private Transform spawnPoint = null;
     #endregion
 
     #region AttachCorals
@@ -36,6 +56,7 @@ public class PoolColliders : MonoBehaviour
             //Instantiate(spawnObject, spawnLocation, spawnRotation);
             //Destroy(collision.gameObject);
             RemoveInteractable(collision.gameObject);
+
 
             Material[] materials = collision.gameObject.GetComponentInChildren<MeshRenderer>().materials;
             Texture originalTexture = originalMaterial.mainTexture;
@@ -53,6 +74,32 @@ public class PoolColliders : MonoBehaviour
             GameManager.s_numberOfCoralsInTray++;
             CheckTray();
             this.gameObject.GetComponent<BoxCollider>().enabled = false;
+            collision.gameObject.transform.eulerAngles = Vector3.zero;
+
+            Quaternion spawnRotation = Quaternion.Euler(0, 0, 0);
+            for(int i = 0; i < collision.gameObject.transform.childCount; i++)
+            {
+                if (collision.gameObject.transform.GetChild(i).gameObject.name.Contains("GreatStarCoral"))
+                {
+                    Instantiate(greatStarCoral, spawnPoint.position, spawnRotation);
+                }
+                else if (collision.gameObject.transform.GetChild(i).gameObject.name.Contains("StaghornClumpCoral"))
+                {
+                    Instantiate(stagHornCoral, spawnPoint.position, spawnRotation);
+                }
+                else if(collision.gameObject.transform.GetChild(i).gameObject.name.Contains("PillarCoral"))
+                {
+                    Instantiate(pillarCoral, spawnPoint.position, spawnRotation);
+                }
+                else if(collision.gameObject.transform.GetChild(i).gameObject.name.Contains("MountainousStarCoral"))
+                {
+                    Instantiate(mountainousStarCoral, spawnPoint.position, spawnRotation);
+                }
+                else if(collision.gameObject.transform.GetChild(i).gameObject.name.Contains("ElkHornCoral"))
+                {
+                    Instantiate(elkHornCoral, spawnPoint.position, spawnRotation);
+                }
+            }
         }
     }
 

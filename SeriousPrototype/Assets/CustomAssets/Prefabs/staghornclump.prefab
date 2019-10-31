@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 2185828353377549355}
   - component: {fileID: 1906850871}
   - component: {fileID: 1906850873}
-  - component: {fileID: 1906850869}
   - component: {fileID: 1906850870}
   - component: {fileID: 1906850872}
   m_Layer: 0
@@ -112,35 +111,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.014193699, y: 0.029493663, z: 0.023689684}
   m_Center: {x: 0.00031985762, y: 0.00009802589, z: 0.000571385}
---- !u!114 &1906850869
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 461980988266350839}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7418c7dd8f977d4e969202d3fa7e926, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  poseEditorExpanded: 1
-  blendEditorExpanded: 1
-  poseNames:
-  - '[not set]'
-  overridePreviewLeftHandPrefab: {fileID: 1000013348574242, guid: 638779290bce1af49b356f33dcc6fccf,
-    type: 3}
-  overridePreviewRightHandPrefab: {fileID: 1000010304998954, guid: 6def53d002137b747aec0b29551e0e25,
-    type: 3}
-  skeletonMainPose: {fileID: 0}
-  skeletonAdditionalPoses: []
-  showLeftPreview: 0
-  showRightPreview: 1
-  previewLeftInstance: {fileID: 0}
-  previewRightInstance: {fileID: 0}
-  previewPoseSelection: 0
-  blendingBehaviours: []
-  scale: 1
 --- !u!114 &1906850870
 MonoBehaviour:
   m_ObjectHideFlags: 0

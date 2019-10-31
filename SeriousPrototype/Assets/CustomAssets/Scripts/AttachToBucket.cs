@@ -40,7 +40,6 @@ public class AttachToBucket : MonoBehaviour
             collision.gameObject.GetComponent<Renderer>().material = collision.gameObject.GetComponent<CutCoralPiece>().getOriginalMaterial();
 
             GameObject copyCoral = Instantiate(collision.gameObject);
-            copyCoral.name = "CopyCoral";
             copyCoral.GetComponent<CutCoralPiece>().setOriginalScale(collision.gameObject.GetComponent<CutCoralPiece>().getOriginalScale());
 
             Destroy(collision.gameObject.GetComponent<CutCoralPiece>());
