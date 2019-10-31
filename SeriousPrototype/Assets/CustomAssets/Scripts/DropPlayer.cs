@@ -12,7 +12,7 @@ public class DropPlayer : MonoBehaviour
     public GameObject labTeleport = null;
 
     // Movement speed in units per second.
-    private float speed = 1.0F;
+    private float speed = 0.5F;
 
     // Time when the movement started.
     private float startTime;
