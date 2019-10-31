@@ -6,6 +6,7 @@ using Valve.VR.InteractionSystem;
 public class UnderwaterStubs : MonoBehaviour
 {
     public GameObject playerObject;
+    public AudioSource OGBG = null, Station6BG = null, Station6Intro = null;
 
     public void OnCollisionEnter(Collision collision)
     {
@@ -41,6 +42,9 @@ public class UnderwaterStubs : MonoBehaviour
 
             if (GameManager.s_underwaterCoralStubs == 4)
             {
+                OGBG.Stop();
+                Station6BG.Play();
+                Station6Intro.Play();
                 playerObject.transform.position = new Vector3(-234.91f, 3.345f, 53.299f);
             }
 

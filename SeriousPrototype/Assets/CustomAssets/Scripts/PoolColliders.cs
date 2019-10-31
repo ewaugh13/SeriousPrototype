@@ -10,9 +10,12 @@ public class PoolColliders : MonoBehaviour
     [Tooltip("The action for squeezing scissors")]
     [SerializeField]
     private Transform teleportPoint = null;
-    [Tooltip("Audio Source to play at the end of station 3")]
+    [Tooltip("Audio Source to play at the end of station 4")]
     [SerializeField]
-    private AudioSource station3EndAudio = null;
+    private AudioSource station4EndAudio = null;
+    [Tooltip("Audio Source to play at the start of station 5")]
+    [SerializeField]
+    private AudioSource station5StartAudio = null;
     [Tooltip("Time to wait for the teleporting to the next area")]
     [SerializeField]
     private float timeToWaitForTeleport = 29;
@@ -34,22 +37,22 @@ public class PoolColliders : MonoBehaviour
             //Destroy(collision.gameObject);
             RemoveInteractable(collision.gameObject);
 
-            Material[] materials = collision.gameObject.GetComponent<MeshRenderer>().materials;
+            Material[] materials = collision.gameObject.GetComponentInChildren<MeshRenderer>().materials;
             Texture originalTexture = originalMaterial.mainTexture;
 
             for (int i = 0; i < materials.Length; i++)
             {
                 if (materials[i].mainTexture != originalTexture)
                 {
-                    collision.gameObject.GetComponent<MeshRenderer>().materials[i].mainTexture = originalTexture;
-                    collision.gameObject.GetComponent<Renderer>().material = originalMaterial;
+                    collision.gameObject.GetComponentInChildren<MeshRenderer>().materials[i].mainTexture = originalTexture;
+                    collision.gameObject.GetComponentInChildren<Renderer>().material = originalMaterial;
                 }
             }
 
             // Increase Count
             GameManager.s_numberOfCoralsInTray++;
             CheckTray();
-            Destroy(this);
+            this.gameObject.GetComponent<BoxCollider>().enabled = false;
         }
     }
 
@@ -77,7 +80,7 @@ public class PoolColliders : MonoBehaviour
 
     private IEnumerator waitToTeleport(float timeToWait)
     {
-        station3EndAudio.Play();
+        station4EndAudio.Play();
         float elapsedTime = 0;
         while (elapsedTime < timeToWait)
         {
@@ -86,5 +89,6 @@ public class PoolColliders : MonoBehaviour
         }
         GameObject playerObject = GameObject.FindGameObjectsWithTag("Player")[0];
         playerObject.transform.position = teleportPoint.position;
+        station5StartAudio.Play();
     }
 }
