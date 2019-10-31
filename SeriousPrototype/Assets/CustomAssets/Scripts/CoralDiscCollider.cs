@@ -33,6 +33,8 @@ public class CoralDiscCollider : MonoBehaviour
             Destroy(collision.gameObject);
 
             // TODO add all interactivity
+            // TODO call add interactable helper method
+            // AddInteractable();
 
             // ready to be placed in pool
             this.gameObject.tag = "CoralStubs";

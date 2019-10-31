@@ -8,6 +8,8 @@ TagManager:
   - FxTemporaire
   - Coral
   - Scissors
+  - CoralStubs
+  - Ground
   layers:
   - Default
   - TransparentFX
