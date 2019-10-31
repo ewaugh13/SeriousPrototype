@@ -27,7 +27,6 @@ public class DropPlayer : MonoBehaviour
         while (elapsedTime < timeToWait)
         {
             elapsedTime += Time.deltaTime;
-            Debug.Log(elapsedTime);
             yield return null;
         }
         GameObject playerObject = GameObject.FindGameObjectsWithTag("Player")[0];
