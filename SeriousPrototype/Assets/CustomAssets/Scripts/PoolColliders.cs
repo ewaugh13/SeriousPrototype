@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PoolColliders : MonoBehaviour
 {
-    //public GameObject spawnObject;
+    public GameObject teleportPoint;
 
     #region AttachCorals
     private void OnCollisionEnter(Collision collision)
@@ -48,7 +48,7 @@ public class PoolColliders : MonoBehaviour
             // Teleport the player
             Debug.Log("Teleporting");
             GameObject playerObject = GameObject.FindGameObjectsWithTag("Player")[0];
-            playerObject.transform.position = new Vector3 (-42.4f, 3.345f, 53.299f);
+            playerObject.transform.position = teleportPoint.transform.position;
         }
     }
     #endregion
