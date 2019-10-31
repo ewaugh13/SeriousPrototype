@@ -26,11 +26,15 @@ public class AttachToBucket : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
+
+        //if(GameManager.s_numCoralsInCutBucket == 0)
+        //    Station2EndAudio.Stop();
         if (collision.gameObject.tag.Equals("Coral") && !collision.gameObject.name.Contains("Copy"))
         {
             GameManager.s_numCoralsInCutBucket++;
             if (GameManager.s_numCoralsInCutBucket == MaxCoralPieces)
             {
+                Debug.Log("2 to 3 VOX Played");
                 Station2EndAudio.Play();
             }
             string originalTag = collision.gameObject.tag;
