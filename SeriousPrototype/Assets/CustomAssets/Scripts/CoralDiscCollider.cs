@@ -1,9 +1,16 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 using Valve.VR;
 using Valve.VR.InteractionSystem;
 
 public class CoralDiscCollider : MonoBehaviour
 {
+    #region Instance Variables
+    [Tooltip("The parent object")]
+    [SerializeField]
+    private GameObject parentObjectDisc;
+    #endregion
+
     public void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag.Equals("Coral"))
@@ -24,7 +31,7 @@ public class CoralDiscCollider : MonoBehaviour
 
             // remove interaction from spawned object and set parent to disc
             RemoveInteractable(spawnedObject);
-            spawnedObject.transform.parent = this.gameObject.transform;
+            spawnedObject.transform.parent = parentObjectDisc.transform;
 
             // remove interactable and the game object from the scene
             // interable removale is needed to unmap hand before we call delete
@@ -32,43 +39,14 @@ public class CoralDiscCollider : MonoBehaviour
             collision.gameObject.SetActive(false);
             Destroy(collision.gameObject);
 
-            // TODO add all interactivity
-            // TODO call add interactable helper method
-            // AddInteractable();
-
             // ready to be placed in pool
-            this.gameObject.tag = "CoralStubs";
+            parentObjectDisc.tag = "CoralStubs";
 
-            // turn of this component after adding coral piece
-            this.enabled = false;
+            parentObjectDisc.GetComponent<BoxCollider>().enabled = true;
+            parentObjectDisc.GetComponent<Rigidbody>().useGravity = true;
 
-
-
-
-
-
-            //// Increasing the Count
-            //GameManager.s_numberOfCoralStubs += 1;
-
-            //// CheckStubs
-            //CheckStubs();
-
-            //collision.gameObject.isStatic = true;
-        }
-    }
-
-    public void CheckStubs()
-    {
-        Debug.Log(GameManager.s_numberOfCoralStubs);
-
-        if (GameManager.s_numberOfCoralStubs == GameManager.s_numberOfCoralDiscs)
-        {
-            // Delay
-
-            // Play Voiceover
-
-            // Teleport the player
-            // GameObject playerObject = GameObject.FindGameObjectsWithTag("Player")[0];
+            // destroy the collision point
+            Destroy(this.gameObject);
         }
     }
 
@@ -80,18 +58,5 @@ public class CoralDiscCollider : MonoBehaviour
         Destroy(interactableGameObject.GetComponent<Throwable>());
         Destroy(interactableGameObject.GetComponent<Interactable>());
         Destroy(interactableGameObject.GetComponent<Rigidbody>());
-    }
-
-    private void AddInteractable(GameObject newInteractableGameObject)
-    {
-        newInteractableGameObject.AddComponent<Rigidbody>();
-        // TODO verify gravity is set
-        newInteractableGameObject.AddComponent<BoxCollider>();
-        newInteractableGameObject.AddComponent<Interactable>();
-        newInteractableGameObject.AddComponent<Throwable>();
-        // TODO make it so its not actually throwable
-        newInteractableGameObject.AddComponent<InteractableHoverEvents>();
-        // TODO add hover events
-        newInteractableGameObject.AddComponent<SteamVR_Skeleton_Poser>();
     }
 }
