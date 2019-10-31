@@ -82,21 +82,26 @@ public class PoolColliders : MonoBehaviour
                 if (collision.gameObject.transform.GetChild(i).gameObject.name.Contains("GreatStarCoral"))
                 {
                     Instantiate(greatStarCoral, spawnPoint.position, spawnRotation);
+                    Instantiate(greatStarCoral, spawnPoint.position, spawnRotation);
                 }
                 else if (collision.gameObject.transform.GetChild(i).gameObject.name.Contains("StaghornClumpCoral"))
                 {
+                    Instantiate(stagHornCoral, spawnPoint.position, spawnRotation);
                     Instantiate(stagHornCoral, spawnPoint.position, spawnRotation);
                 }
                 else if(collision.gameObject.transform.GetChild(i).gameObject.name.Contains("PillarCoral"))
                 {
                     Instantiate(pillarCoral, spawnPoint.position, spawnRotation);
+                    Instantiate(pillarCoral, spawnPoint.position, spawnRotation);
                 }
                 else if(collision.gameObject.transform.GetChild(i).gameObject.name.Contains("MountainousStarCoral"))
                 {
                     Instantiate(mountainousStarCoral, spawnPoint.position, spawnRotation);
+                    Instantiate(mountainousStarCoral, spawnPoint.position, spawnRotation);
                 }
                 else if(collision.gameObject.transform.GetChild(i).gameObject.name.Contains("ElkHornCoral"))
                 {
+                    Instantiate(elkHornCoral, spawnPoint.position, spawnRotation);
                     Instantiate(elkHornCoral, spawnPoint.position, spawnRotation);
                 }
             }

@@ -705,6 +705,10 @@ namespace Valve.VR.InteractionSystem
             if (trackedObject == null)
             {
                 Vector3 velocityTarget, angularTarget;
+                if (currentAttachedObjectInfo.Value.attachedRigidbody == null)
+                {
+                    return Vector3.zero;
+                }
                 GetUpdatedAttachedVelocities(currentAttachedObjectInfo.Value, out velocityTarget, out angularTarget);
                 return velocityTarget;
             }
@@ -1236,6 +1240,10 @@ namespace Valve.VR.InteractionSystem
         protected void UpdateAttachedVelocity(AttachedObject attachedObjectInfo)
         {
             Vector3 velocityTarget, angularTarget;
+            if (attachedObjectInfo.attachedRigidbody == null)
+            {
+                return;
+            }
             bool success = GetUpdatedAttachedVelocities(attachedObjectInfo, out velocityTarget, out angularTarget);
             if (success)
             {

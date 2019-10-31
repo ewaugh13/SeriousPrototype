@@ -33,6 +33,7 @@ public class UnderwaterStubs : MonoBehaviour
             // Make Parent
             collision.gameObject.GetComponent<Interactable>().hideHandOnAttach = false;
             Destroy(collision.gameObject.GetComponent<Throwable>());
+            Destroy(collision.gameObject.GetComponent<InteractableHoverEvents>());
             Destroy(collision.gameObject.GetComponent<Interactable>());
 
             collision.gameObject.transform.position = gameObject.transform.position;

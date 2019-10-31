@@ -215,8 +215,8 @@ MonoBehaviour:
         m_MethodName: set_material
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: 3e93bd562f00c13489f18d46f7f562fe,
-            type: 3}
+          m_ObjectArgument: {fileID: 2100000, guid: 52a84714b7698f7488f3049990621f7a,
+            type: 2}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0

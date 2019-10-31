@@ -63,6 +63,10 @@ public class ScissorCut : MonoBehaviour
         }
         else if (fromSource.Equals(SteamVR_Input_Sources.RightHand))
         {
+            if (this.gameObject.transform == null || this.gameObject.transform.parent == null || this.gameObject.transform.parent.gameObject == null)
+            {
+                return;
+            }
             if (!this.gameObject.transform.parent.gameObject.name.Contains("RightHand"))
             {
                 return;
