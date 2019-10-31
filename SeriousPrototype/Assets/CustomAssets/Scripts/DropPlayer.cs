@@ -36,6 +36,10 @@ public class DropPlayer : MonoBehaviour
 
     void Start()
     {
+    }
+
+    public void DropPlayerStart()
+    {
         // Keep a note of the time the movement started.
         startTime = Time.time;
 
