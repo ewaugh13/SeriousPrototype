@@ -26,22 +26,28 @@ public class AttachToBucket : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.tag.Equals("Coral") && !collision.gameObject.name.Contains("Copy"))
+        // if its a coral piece we create a duplicate in the other bucket across the room
+        if (collision.gameObject.tag.Equals("Coral"))
         {
             GameManager.s_numCoralsInCutBucket++;
             if (GameManager.s_numCoralsInCutBucket == MaxCoralPieces)
             {
-                Debug.Log("2 to 3 VOX Played");
                 Station2EndAudio.Play();
             }
+
+            // remove tag so we can no longer cut this piece as its in the bucket
             string originalTag = collision.gameObject.tag;
             collision.gameObject.tag = "Untagged";
+            // set parenting of coral piece to the bucket
             collision.gameObject.transform.parent = thisBucket.gameObject.transform;
-            collision.gameObject.GetComponent<Renderer>().material = collision.gameObject.GetComponent<CutCoralPiece>().getOriginalMaterial();
+            // reset material of object put in bucket
+            this.gameObject.GetComponent<RemoveHighlightedMaterial>().removeMaterial(collision.gameObject);
 
+            // create the copy coral
             GameObject copyCoral = Instantiate(collision.gameObject);
             copyCoral.GetComponent<CutCoralPiece>().setOriginalScale(collision.gameObject.GetComponent<CutCoralPiece>().getOriginalScale());
 
+            // make the dropped in coral piece no longer interactable
             Destroy(collision.gameObject.GetComponent<CutCoralPiece>());
             Destroy(collision.gameObject.GetComponent<Throwable>());
             Destroy(collision.gameObject.GetComponent<InteractableHoverEvents>());
@@ -49,27 +55,20 @@ public class AttachToBucket : MonoBehaviour
             collision.gameObject.GetComponent<BoxCollider>().enabled = false;
             collision.gameObject.GetComponent<Rigidbody>().useGravity = false;
 
-            Material originalMaterial = copyCoral.GetComponent<CutCoralPiece>().getOriginalMaterial();
-            Texture originalTexture = copyCoral.GetComponent<CutCoralPiece>().getOriginalMaterial().mainTexture;
-            Material[] materials = copyCoral.GetComponent<MeshRenderer>().materials;
+            // reset the material in case vr highlighted material was active when put in bucket and cloned
+            this.gameObject.GetComponent<RemoveHighlightedMaterial>().removeMaterial(copyCoral);
 
-            for (int i = 0; i < materials.Length; i++)
-            {
-                if(materials[i].mainTexture != originalTexture)
-                {
-                    copyCoral.GetComponent<MeshRenderer>().materials[i].mainTexture = originalTexture;
-                    copyCoral.GetComponent<Renderer>().material = originalMaterial;
-                }
-            }
-
+            // set the parent, position, scale and tag of the copied coral to be used later
             copyCoral.transform.parent = otherBucket.transform;
             copyCoral.transform.localScale = collision.gameObject.transform.localScale;
             copyCoral.transform.position = teleportPosition.position;
             copyCoral.tag = originalTag;
 
+            // reinitalize collision and rigid body on coral piece at bottom of bucket
             collision.gameObject.GetComponent<BoxCollider>().enabled = true;
             collision.gameObject.GetComponent<Rigidbody>().useGravity = true;
 
+            // add collision and rigid body on copy coral piece at bottom of other bucket
             copyCoral.GetComponent<BoxCollider>().enabled = true;
             copyCoral.GetComponent<Rigidbody>().useGravity = true;
         }

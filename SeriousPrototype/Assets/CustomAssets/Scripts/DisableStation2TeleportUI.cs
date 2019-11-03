@@ -21,7 +21,6 @@ public class DisableStation2TeleportUI : MonoBehaviour
             Destroy(coralAudioInfo3);
             Destroy(coralAudioInfo4);
             Destroy(coralAudioInfo5);
-            Debug.Log("UI Canvas Destroyed");
             Station_2_IntroAudio.Play();
             atStation = true;
         }

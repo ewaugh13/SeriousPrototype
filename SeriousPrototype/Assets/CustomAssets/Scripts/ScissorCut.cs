@@ -35,7 +35,6 @@ public class ScissorCut : MonoBehaviour
     private bool cutting = false;
     #endregion
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -43,16 +42,12 @@ public class ScissorCut : MonoBehaviour
         scissorSqueeze.AddOnStateUpListener(cutMotion, handType);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
     public void cutMotion(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
     {
         if (fromSource.Equals(SteamVR_Input_Sources.LeftHand))
         {
-            if(this.gameObject.transform == null || this.gameObject.transform.parent == null || this.gameObject.transform.parent.gameObject == null)
+            // if the object is attached to the hand return
+            if (this.gameObject.transform == null || this.gameObject.transform.parent == null || this.gameObject.transform.parent.gameObject == null)
             {
                 return;
             }
@@ -63,6 +58,7 @@ public class ScissorCut : MonoBehaviour
         }
         else if (fromSource.Equals(SteamVR_Input_Sources.RightHand))
         {
+            // if the object is attached to the hand return
             if (this.gameObject.transform == null || this.gameObject.transform.parent == null || this.gameObject.transform.parent.gameObject == null)
             {
                 return;
@@ -72,6 +68,7 @@ public class ScissorCut : MonoBehaviour
                 return;
             }
         }
+
         float currentXPosTop = this.scissorTop.GetComponent<Transform>().localPosition.x;
         float currentYRotationTop = this.scissorTop.GetComponent<Transform>().localEulerAngles.y;
         float currentZPosTop = this.scissorTop.GetComponent<Transform>().localPosition.z;
@@ -117,10 +114,12 @@ public class ScissorCut : MonoBehaviour
                 elapsedTime = time;
                 yield break;
             }
+            // lerp x and z pos
             float newXPos = Mathf.Lerp(startXPos, endXPos, elapsedTime / time);
             float newZPos = Mathf.Lerp(startZPos, endZPos, elapsedTime / time);
             scissorHalf.GetComponent<Transform>().localPosition = new Vector3(newXPos, 0, newZPos);
 
+            // lerp y rotation
             float newYRotation = Mathf.Lerp(startYRotation, endYRotation, elapsedTime / time);
             scissorHalf.GetComponent<Transform>().localEulerAngles = new Vector3(0, newYRotation, 0);
 

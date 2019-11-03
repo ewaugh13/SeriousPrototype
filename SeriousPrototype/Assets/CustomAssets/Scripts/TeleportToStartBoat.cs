@@ -12,9 +12,17 @@ public class TeleportToStartBoat : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        // if hand collides with the boat object
         if(collision.gameObject.name.Contains("Hand"))
         {
-            GameObject playerObject = GameObject.FindGameObjectsWithTag("Player")[0];
+            GameObject playerObject = null;
+            foreach (GameObject playerTaggedObj in GameObject.FindGameObjectsWithTag("Player"))
+            {
+                if (playerTaggedObj.name.Equals("Player"))
+                {
+                    playerObject = playerTaggedObj;
+                }
+            }
             this.gameObject.GetComponent<DropPlayer>().DropPlayerStart();
             startAudio.Play();
         }

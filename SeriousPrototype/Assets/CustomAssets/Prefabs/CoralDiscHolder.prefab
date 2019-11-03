@@ -242,6 +242,7 @@ GameObject:
   - component: {fileID: 4156507781179208619}
   - component: {fileID: 107313446322514468}
   - component: {fileID: 5268406989495174971}
+  - component: {fileID: 196243080773947658}
   m_Layer: 0
   m_Name: CollisionPoint
   m_TagString: Untagged
@@ -289,6 +290,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentObjectDisc: {fileID: 1418774824630834818}
+--- !u!114 &196243080773947658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4449257756973833977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd86de3a1e03f1e4d817bd4dd2a532ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4619571015688777191
 GameObject:
   m_ObjectHideFlags: 0

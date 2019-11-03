@@ -27,19 +27,6 @@ public class CoralDiscCollider : MonoBehaviour
             // Creation and Destruction
             GameObject spawnedObject = Instantiate(collision.gameObject, spawnLocation, spawnRotation);
 
-            Material originalMaterial = spawnedObject.GetComponent<CutCoralPiece>().getOriginalMaterial();
-            Texture originalTexture = spawnedObject.GetComponent<CutCoralPiece>().getOriginalMaterial().mainTexture;
-            Material[] materials = spawnedObject.GetComponent<MeshRenderer>().materials;
-
-            for (int i = 0; i < materials.Length; i++)
-            {
-                if (materials[i].mainTexture != originalTexture)
-                {
-                    spawnedObject.GetComponent<MeshRenderer>().materials[i].mainTexture = originalTexture;
-                    spawnedObject.GetComponent<Renderer>().material = originalMaterial;
-                }
-            }
-
             spawnedObject.transform.localScale = collision.gameObject.GetComponent<CutCoralPiece>().getOriginalScale();
             spawnedObject.tag = "Untagged";
 
@@ -52,6 +39,10 @@ public class CoralDiscCollider : MonoBehaviour
             RemoveInteractable(collision.gameObject);
             collision.gameObject.SetActive(false);
             Destroy(collision.gameObject);
+
+            // reset material if needed
+            this.gameObject.GetComponent<RemoveHighlightedMaterial>().removeMaterial(collision.gameObject);
+            this.gameObject.GetComponent<RemoveHighlightedMaterial>().removeMaterial(spawnedObject);
 
             // ready to be placed in pool
             parentObjectDisc.tag = "CoralStubs";

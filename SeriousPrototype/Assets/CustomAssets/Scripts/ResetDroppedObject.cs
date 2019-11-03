@@ -9,6 +9,8 @@ public class ResetDroppedObject : MonoBehaviour
     private Vector3 originalRotation = Vector3.zero;
     #endregion
 
+    private float yDisplacement = 0.1f;
+
     private void Start()
     {
         originalPosition = this.gameObject.transform.position;
@@ -18,8 +20,11 @@ public class ResetDroppedObject : MonoBehaviour
     {
         if(collision.gameObject.tag.Equals("Ground"))
         {
-            this.gameObject.transform.position = originalPosition;
+            this.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+            this.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            this.gameObject.transform.position = new Vector3(originalPosition.x, originalPosition.y + yDisplacement, originalPosition.z);
             this.gameObject.transform.eulerAngles = originalRotation;
+            this.gameObject.GetComponent<Rigidbody>().isKinematic = false;
         }
     }
 }

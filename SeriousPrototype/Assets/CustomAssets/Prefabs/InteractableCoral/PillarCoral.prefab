@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 962983298855440448}
   - component: {fileID: 962983298855440455}
   - component: {fileID: 962983298855440450}
+  - component: {fileID: 2086737673}
+  - component: {fileID: 2086737675}
   m_Layer: 0
   m_Name: PillarCoral
   m_TagString: Coral
@@ -32,7 +34,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 962983298855440454}
   m_LocalRotation: {x: 0.6830127, y: 0.18301274, z: -0.18301274, w: 0.6830127}
-  m_LocalPosition: {x: -51.5547, y: 0.8918, z: -3.2549}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -389,6 +391,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numTriangles: 100
-  originalMaterial: {fileID: 2100000, guid: 8191a70346d9e9c4f802701721cef645, type: 2}
   originalScale: {x: 1, y: 1, z: 1}
   originalRotation: {x: 90, y: 30, z: 0}
+--- !u!114 &2086737673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 962983298855440454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fa2b4ad76a830d41a0c70bf602287bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2086737675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 962983298855440454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b96bf9450c71644d90836109d28a81a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  originalMaterial: {fileID: 2100000, guid: 8191a70346d9e9c4f802701721cef645, type: 2}

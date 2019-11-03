@@ -9,12 +9,6 @@ public class Station3PVOXAfter1Coral : MonoBehaviour
 
     private bool AudioPlayed = false;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag.Equals("Coral") && AudioPlayed == false)
@@ -23,11 +17,5 @@ public class Station3PVOXAfter1Coral : MonoBehaviour
             AudioPlayed = true;
             Destroy(this.gameObject);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 4149670129821339067}
   - component: {fileID: 4149670129821339066}
   - component: {fileID: 4149670129821339065}
+  - component: {fileID: 1597427013}
+  - component: {fileID: 1597427015}
   m_Layer: 0
   m_Name: MountainousStarCoral
   m_TagString: Coral
@@ -31,13 +33,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4149670129821339061}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -51.65, y: 0.8918, z: -3.361}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: -0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 270, y: 0, z: 0}
 --- !u!54 &4119320072805919151
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -389,6 +391,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numTriangles: 100
-  originalMaterial: {fileID: 2100000, guid: 52a84714b7698f7488f3049990621f7a, type: 2}
   originalScale: {x: 1, y: 1, z: 1}
   originalRotation: {x: 270, y: 0, z: 0}
+--- !u!114 &1597427013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4149670129821339061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fa2b4ad76a830d41a0c70bf602287bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1597427015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4149670129821339061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b96bf9450c71644d90836109d28a81a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  originalMaterial: {fileID: 2100000, guid: 52a84714b7698f7488f3049990621f7a, type: 2}

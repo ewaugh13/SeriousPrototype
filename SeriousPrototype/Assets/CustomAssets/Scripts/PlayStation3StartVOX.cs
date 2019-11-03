@@ -9,22 +9,6 @@ public class PlayStation3StartVOX : MonoBehaviour
     [SerializeField]
     private AudioSource Station3StartAudio = null;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.tag.Equals("Player") && PlayerOnStation == false)
-        {
-            PlayerOnStation = true;
-            Station3StartAudio.Play();
-        }
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Player");
@@ -33,11 +17,5 @@ public class PlayStation3StartVOX : MonoBehaviour
             PlayerOnStation = true;
             Station3StartAudio.Play();
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

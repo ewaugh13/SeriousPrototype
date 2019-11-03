@@ -18,6 +18,8 @@ GameObject:
   - component: {fileID: 6311739107185946971}
   - component: {fileID: 6311739107185946972}
   - component: {fileID: 6197307817641282326}
+  - component: {fileID: 206792190}
+  - component: {fileID: 206792192}
   m_Layer: 0
   m_Name: StaghornClumpCoral
   m_TagString: Coral
@@ -32,13 +34,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6311739107185946968}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -51.764, y: 0.9162, z: -3.47}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: -0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
 --- !u!54 &6281281773682103618
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -390,7 +392,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numTriangles: 100
-  originalMaterial: {fileID: 2100000, guid: 5558b5711d37782468eeee5c2880e7d8, type: 2}
   originalScale: {x: 3, y: 3, z: 3}
   originalRotation: {x: 0, y: 270, z: 0}
 --- !u!114 &6197307817641282326
@@ -422,3 +423,28 @@ MonoBehaviour:
   previewPoseSelection: 0
   blendingBehaviours: []
   scale: 1
+--- !u!114 &206792190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6311739107185946968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fa2b4ad76a830d41a0c70bf602287bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &206792192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6311739107185946968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b96bf9450c71644d90836109d28a81a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  originalMaterial: {fileID: 2100000, guid: 5558b5711d37782468eeee5c2880e7d8, type: 2}

@@ -29,13 +29,16 @@ public class DropPlayer : MonoBehaviour
             elapsedTime += Time.deltaTime;
             yield return null;
         }
-        GameObject playerObject = GameObject.FindGameObjectsWithTag("Player")[0];
+        GameObject playerObject = null;
+        foreach(GameObject playerTaggedObj in GameObject.FindGameObjectsWithTag("Player"))
+        {
+            if(playerTaggedObj.name.Equals("Player"))
+            {
+                playerObject = playerTaggedObj;
+            }
+        }
         playerObject.transform.position = labTeleport.transform.position;
         Station1intro.Play();
-    }
-
-    void Start()
-    {
     }
 
     public void DropPlayerStart()

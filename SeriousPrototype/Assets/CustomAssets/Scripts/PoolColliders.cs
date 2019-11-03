@@ -53,11 +53,9 @@ public class PoolColliders : MonoBehaviour
             collision.gameObject.transform.position = gameObject.transform.position;
 
             //// Creation and Destruction
-            //Instantiate(spawnObject, spawnLocation, spawnRotation);
-            //Destroy(collision.gameObject);
             RemoveInteractable(collision.gameObject);
 
-
+            // reset orignal material if highlighted one was the last one set
             Material[] materials = collision.gameObject.GetComponentInChildren<MeshRenderer>().materials;
             Texture originalTexture = originalMaterial.mainTexture;
 
@@ -139,7 +137,14 @@ public class PoolColliders : MonoBehaviour
             elapsedTime += Time.deltaTime;
             yield return null;
         }
-        GameObject playerObject = GameObject.FindGameObjectsWithTag("Player")[0];
+        GameObject playerObject = null;
+        foreach (GameObject playerTaggedObj in GameObject.FindGameObjectsWithTag("Player"))
+        {
+            if (playerTaggedObj.name.Equals("Player"))
+            {
+                playerObject = playerTaggedObj;
+            }
+        }
         playerObject.transform.position = teleportPoint.position;
         station5StartAudio.Play();
     }
